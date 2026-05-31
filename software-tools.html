@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Custom software, dashboards, and tools that solve specific problems. If a spreadsheet isn't cutting it, I build what does. Mozingo Systems, Wendell NC." />
+  <title>Software &amp; Tools — Mozingo Systems</title>
+  <link rel="canonical" href="https://mozingosystems.com/software-tools" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+  <style>
+    :root{--bg:#FAFAF8;--bg-alt:#F5F4F0;--bg-card:#FFFFFF;--border:#E2DDD5;--border-strong:#C9C3B8;--accent:#B45309;--accent-hover:#92400E;--accent-light:#FEF3C7;--accent-text:#92400E;--heading:#1C1917;--text:#44403C;--text-dim:#57534E;--text-faint:#A8A29E;--radius:8px;--radius-lg:14px;--container:780px}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+    .wrap{max-width:var(--container);margin:0 auto;padding:0 1.5rem;width:100%}
+    header{padding:1.75rem 0;border-bottom:1px solid var(--border)}
+    .header-inner{display:flex;align-items:center;justify-content:space-between}
+    .brand{font-weight:700;font-size:1rem;letter-spacing:.04em;color:var(--heading);text-decoration:none}
+    .brand span{color:var(--accent)}
+    .back{font-size:.85rem;color:var(--text-dim);text-decoration:none;display:flex;align-items:center;gap:.3rem}
+    .back:hover{color:var(--accent)}
+    .hero{padding:3.5rem 0 2.5rem}
+    .badge{display:inline-block;font-size:.75rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;background:var(--accent-light);color:var(--accent-text);padding:.3rem .85rem;border-radius:999px;margin-bottom:1.25rem}
+    h1{font-size:clamp(1.8rem,5vw,2.6rem);font-weight:700;color:var(--heading);line-height:1.1;letter-spacing:-.02em;margin-bottom:1rem}
+    .lead{font-size:1.05rem;color:var(--text-dim);max-width:580px;line-height:1.65}
+    .section{margin-bottom:2.5rem}
+    .section h2{font-size:1.15rem;font-weight:700;color:var(--heading);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid var(--border)}
+    .caps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+    .cap{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.1rem 1.25rem}
+    .cap h3{font-size:.9rem;font-weight:600;color:var(--heading);margin-bottom:.3rem}
+    .cap p{font-size:.82rem;color:var(--text-dim);line-height:1.5}
+    .example{background:var(--bg-card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:1rem 1.25rem;margin-bottom:.75rem}
+    .example p{font-size:.88rem;color:var(--text-dim);line-height:1.55}
+    .example strong{color:var(--heading);display:block;margin-bottom:.2rem;font-size:.9rem}
+    .stack{display:flex;flex-wrap:wrap;gap:8px;margin-top:.75rem}
+    .tag{font-size:.75rem;font-weight:500;background:var(--bg-alt);border:1px solid var(--border);border-radius:999px;padding:.2rem .75rem;color:var(--text-dim)}
+    .cta{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:2rem;margin-bottom:3rem}
+    .cta h2{font-size:1.2rem;font-weight:700;color:var(--heading);margin-bottom:.4rem}
+    .cta p{font-size:.9rem;color:var(--text-dim);margin-bottom:1.25rem}
+    label{display:block;font-size:.82rem;font-weight:600;color:var(--text-dim);margin-bottom:.3rem}
+    input,textarea{width:100%;background:var(--bg);border:1px solid var(--border-strong);border-radius:var(--radius);padding:.65rem .85rem;color:var(--heading);font-family:inherit;font-size:.93rem;margin-bottom:1rem;transition:border-color .15s}
+    input:focus,textarea:focus{outline:none;border-color:var(--accent)}
+    textarea{resize:vertical;min-height:90px}
+    button{width:100%;background:var(--heading);color:#fff;border:none;border-radius:var(--radius);padding:.8rem 1rem;font-family:inherit;font-size:.93rem;font-weight:600;cursor:pointer;transition:background .15s}
+    button:hover{background:var(--accent)}
+    .note{font-size:.78rem;color:var(--text-faint);margin-top:.75rem;text-align:center}
+    .ok{display:none;text-align:center;padding:1.25rem;color:#065F46;font-weight:600}
+    footer{margin-top:auto;padding:1.5rem 0;border-top:1px solid var(--border);color:var(--text-faint);font-size:.82rem}
+    footer a{color:var(--text-dim);text-decoration:none}
+    footer a:hover{color:var(--accent)}
+    @media(max-width:560px){.caps{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <div class="header-inner">
+        <a href="/" class="brand">MOZINGO <span>SYSTEMS</span></a>
+        <a href="/" class="back">&#8592; All services</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <section class="hero">
+        <span class="badge">Software &amp; Tools</span>
+        <h1>If a spreadsheet<br>isn't cutting it.</h1>
+        <p class="lead">I build custom software and tools for specific problems — not generic platforms, not overbuilt systems. Something that does exactly what you need and hands off cleanly.</p>
+      </section>
+
+      <div class="section">
+        <h2>What I build</h2>
+        <div class="caps">
+          <div class="cap">
+            <h3>Operations dashboards</h3>
+            <p>One view of what's happening — pulling from multiple sources, updated automatically, built for the people who actually use it.</p>
+          </div>
+          <div class="cap">
+            <h3>Internal tools</h3>
+            <p>The thing your team does manually every week that should just be a form, a button, or a scheduled job.</p>
+          </div>
+          <div class="cap">
+            <h3>Data consolidation</h3>
+            <p>Merging disconnected sources into one clean, organized place. Eliminating the "who has the latest version" problem.</p>
+          </div>
+          <div class="cap">
+            <h3>Desktop &amp; WPF apps</h3>
+            <p>Windows desktop applications for industrial, engineering, or internal use — C# and WPF with clean interfaces that operators actually understand.</p>
+          </div>
+          <div class="cap">
+            <h3>Scripts &amp; utilities</h3>
+            <p>Python, C#, or whatever the job needs — small tools that do one thing well and save hours every time they run.</p>
+          </div>
+          <div class="cap">
+            <h3><a href="https://www.upwork.com/freelancers/~01bc6bfc929527a41b" style="color:inherit;text-decoration:none">Upwork small projects</a></h3>
+            <p>Scoped, bounded work on Upwork for teams that need something specific built fast without a long engagement.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Real examples</h2>
+        <div class="example">
+          <strong>Equipment Integration Dashboard</strong>
+          <p>Custom WPF application built to monitor semiconductor equipment status across a fab floor. Traveled with a business acquisition from Wolfspeed to MACOM — the kind of tool that becomes infrastructure.</p>
+        </div>
+        <div class="example">
+          <strong>CWIK — maintenance knowledge tool</strong>
+          <p>Built during equipment engineering tenure to capture and surface tribal knowledge around equipment maintenance — reducing reliance on the one person who "just knows."</p>
+        </div>
+        <div class="example">
+          <strong>Power Apps task automation</strong>
+          <p>Low-code automation tools for routine operational tasks — form submissions, approvals, and notifications that previously lived in email threads.</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Stack</h2>
+        <div class="stack">
+          <span class="tag">Python</span>
+          <span class="tag">C#</span>
+          <span class="tag">WPF</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">SQL Server</span>
+          <span class="tag">Snowflake</span>
+          <span class="tag">Power BI</span>
+          <span class="tag">Power Apps</span>
+          <span class="tag">ServiceNow</span>
+          <span class="tag">Azure DevOps</span>
+          <span class="tag">HTML / CSS</span>
+          <span class="tag">MicroPython</span>
+        </div>
+      </div>
+
+      <div class="cta">
+        <h2>Have a pain point that needs a tool?</h2>
+        <p>Describe what's broken or manual. I'll tell you what I'd build and roughly what it takes.</p>
+        <form id="contact" action="https://formspree.io/f/xwvnljbz" method="POST">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required />
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+          <label for="message">What's the problem?</label>
+          <textarea id="message" name="message" required></textarea>
+          <input type="hidden" name="_subject" value="Mozingo Systems — Software &amp; Tools inquiry" />
+          <button type="submit">Send &#8594;</button>
+        </form>
+        <div class="ok" id="ok">Got it — I'll be in touch shortly.</div>
+        <p class="note">Or email <a href="mailto:frank.mozingo@gmail.com">frank.mozingo@gmail.com</a></p>
+      </div>
+    </div>
+  </main>
+
+    <footer>
+    <div class="wrap">
+      <div style="display:flex;flex-wrap:wrap;gap:.75rem 2rem;align-items:center;justify-content:space-between;margin-bottom:.75rem">
+        <div style="display:flex;gap:1.25rem;flex-wrap:wrap;font-size:.82rem">
+          <a href="/">Home</a>
+          <a href="/embedded-iot.html">Embedded &amp; IoT</a>
+          <a href="/industrial-data.html">Industrial &amp; Data</a>
+          <a href="/ai-automation.html">AI &amp; Automation</a>
+          <a href="/software-tools.html">Software &amp; Tools</a>
+        </div>
+        <div style="display:flex;gap:1.25rem;flex-wrap:wrap;font-size:.82rem">
+          <a href="https://www.linkedin.com/in/frankmozingo/">LinkedIn</a>
+          <a href="https://www.upwork.com/freelancers/~01bc6bfc929527a41b">Upwork</a>
+          <a href="mailto:info@mozingosystems.com">info@mozingosystems.com</a>
+        </div>
+      </div>
+      <div style="font-size:.82rem">Mozingo Systems &middot; Wendell, NC &middot; Veteran-owned</div>
+    </div>
+  </footer>
+
+  <script>
+    const form=document.getElementById('contact');
+    form.addEventListener('submit',async function(e){
+      if(form.action.includes('xwvnljbz'))return;
+      e.preventDefault();
+      try{const r=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}});
+      if(r.ok){form.style.display='none';document.getElementB

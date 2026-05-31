@@ -3,207 +3,338 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Mozingo Systems builds technical solutions for real problems — embedded systems, IoT, industrial data, AI automation, and custom software. Veteran-owned, Wendell NC." />
+  <meta name="author" content="Frank Mozingo" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#FAFAF8" />
+  <link rel="canonical" href="https://mozingosystems.com/" />
 
-  <title>Mozingo Systems — Operational Systems, Automation &amp; Practical AI</title>
-  <meta name="description" content="Mozingo Systems helps organizations clean up data, streamline operations, and implement practical AI. Data cleanup, workflow automation, dashboards, and systems integration for SMBs, nonprofits, healthcare, and manufacturing in North Carolina." />
-  <meta name="theme-color" content="#1a1d21" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%231a1d21'/%3E%3Crect x='4' y='4' width='8' height='8' fill='%232f6f4e' stroke='%23fff' stroke-width='1.5'/%3E%3C/svg%3E" />
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Mozingo Systems — Operational Systems &amp; Practical AI" />
-  <meta property="og:description" content="We help organizations clean up data, streamline operations, and implement practical AI solutions." />
   <meta property="og:site_name" content="Mozingo Systems" />
+  <meta property="og:title" content="Mozingo Systems — Technical Problems Solved" />
+  <meta property="og:description" content="Hardware, software, or both. 30 years across military electronics, semiconductor fab, and industrial automation." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://mozingosystems.com/" />
+  <meta property="og:locale" content="en_US" />
 
+  <title>Mozingo Systems — Technical Problems Solved</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
 
-  <link rel="stylesheet" href="styles.css" />
+  <style>
+    :root {
+      --bg: #FAFAF8;
+      --bg-alt: #F5F4F0;
+      --bg-card: #FFFFFF;
+      --border: #E2DDD5;
+      --border-strong: #C9C3B8;
+      --accent: #B45309;
+      --accent-hover: #92400E;
+      --accent-light: #FEF3C7;
+      --accent-text: #92400E;
+      --heading: #1C1917;
+      --text: #44403C;
+      --text-dim: #57534E;
+      --text-faint: #A8A29E;
+      --radius: 8px;
+      --radius-lg: 14px;
+      --container: 780px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .wrap { max-width: var(--container); margin: 0 auto; padding: 0 1.5rem; width: 100%; }
+
+    /* Header */
+    header { padding: 1.75rem 0; border-bottom: 1px solid var(--border); }
+    .brand { font-weight: 700; font-size: 1rem; letter-spacing: .04em; color: var(--heading); }
+    .brand span { color: var(--accent); }
+
+    /* Hero */
+    .hero { padding: 4rem 0 3rem; }
+    .badge {
+      display: inline-block; font-size: .75rem; font-weight: 600;
+      letter-spacing: .06em; text-transform: uppercase;
+      background: var(--accent-light); color: var(--accent-text);
+      padding: .3rem .85rem; border-radius: 999px; margin-bottom: 1.5rem;
+    }
+    h1 {
+      font-size: clamp(2rem, 5.5vw, 2.9rem);
+      font-weight: 700; color: var(--heading);
+      line-height: 1.1; letter-spacing: -.02em;
+      margin-bottom: 1.1rem;
+    }
+    .lead {
+      font-size: 1.1rem; color: var(--text-dim);
+      max-width: 580px; margin-bottom: 2.5rem; line-height: 1.65;
+    }
+
+    /* Lanes */
+    .lanes { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-bottom: 3rem; }
+    .lane {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem 1rem;
+      text-align: center;
+      transition: border-color .15s, box-shadow .15s;
+    }
+    .lane:hover { border-color: var(--accent); box-shadow: 0 2px 12px rgba(180,83,9,.08); }
+    .lane-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: var(--accent-light);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto .75rem;
+    }
+    .lane-icon svg { width: 20px; height: 20px; stroke: var(--accent); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .lane h3 { font-size: .9rem; font-weight: 600; color: var(--heading); margin-bottom: .35rem; }
+    .lane p { font-size: .8rem; color: var(--text-dim); line-height: 1.45; }
+
+    /* About strip */
+    .about {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem 2rem;
+      margin-bottom: 3rem;
+      display: flex; gap: 2rem; align-items: center;
+    }
+    .about-avatar {
+      width: 64px; height: 64px; border-radius: 50%;
+      object-fit: cover; flex-shrink: 0;
+      border: 2px solid var(--border);
+    }
+    .about p { font-size: .9rem; color: var(--text-dim); line-height: 1.6; }
+    .about strong { color: var(--heading); }
+
+    /* Contact */
+    .contact-wrap { margin-bottom: 4rem; }
+    .contact-wrap h2 { font-size: 1.4rem; font-weight: 700; color: var(--heading); margin-bottom: .4rem; }
+    .contact-wrap .sub { font-size: .95rem; color: var(--text-dim); margin-bottom: 1.5rem; }
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+    }
+    label { display: block; font-size: .82rem; font-weight: 600; color: var(--text-dim); margin-bottom: .3rem; }
+    input, textarea, select {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius);
+      padding: .65rem .85rem;
+      color: var(--heading);
+      font-family: inherit;
+      font-size: .95rem;
+      margin-bottom: 1.1rem;
+      transition: border-color .15s;
+    }
+    input:focus, textarea:focus, select:focus { outline: none; border-color: var(--accent); }
+    textarea { resize: vertical; min-height: 100px; }
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    button {
+      width: 100%;
+      background: var(--heading);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius);
+      padding: .85rem 1rem;
+      font-family: inherit;
+      font-size: .95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background .15s;
+    }
+    button:hover { background: var(--accent); }
+    .note { font-size: .78rem; color: var(--text-faint); margin-top: .85rem; text-align: center; }
+    .ok { display: none; text-align: center; padding: 1.5rem; color: #065F46; font-weight: 600; font-size: 1rem; }
+
+    /* Footer */
+    footer {
+      margin-top: auto;
+      padding: 1.5rem 0;
+      border-top: 1px solid var(--border);
+      color: var(--text-faint);
+      font-size: .82rem;
+    }
+    footer a { color: var(--text-dim); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 560px) {
+      .field-row { grid-template-columns: 1fr; }
+      .about { flex-direction: column; gap: 1rem; }
+      .lanes { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- ============ HEADER ============ -->
-  <header class="site-header" id="top">
-    <div class="container header-inner">
-      <a href="#top" class="brand" aria-label="Mozingo Systems home">
-        <span class="brand-mark" aria-hidden="true"></span>
-        <span class="brand-name">MOZINGO<span class="brand-sub">SYSTEMS</span></span>
-      </a>
-      <nav class="header-nav" aria-label="Primary">
-        <a href="#what">What We Do</a>
-        <a href="#approach">Approach</a>
-        <a href="#review">Free Review</a>
-        <a href="#contact" class="nav-cta">Contact</a>
-      </nav>
+  <header>
+    <div class="wrap">
+      <div class="brand">MOZINGO <span>SYSTEMS</span></div>
     </div>
   </header>
 
   <main>
+    <div class="wrap">
 
-    <!-- ============ HERO ============ -->
-    <section class="hero" aria-labelledby="hero-heading">
-      <div class="container">
-        <p class="eyebrow">Operational Systems &amp; Practical AI</p>
-        <h1 id="hero-heading">
-          Is your business drowning in spreadsheets, disconnected systems, and repetitive work?
-        </h1>
-        <p class="hero-sub">
-          We help organizations clean up data, streamline operations, and implement practical AI solutions.
+      <!-- Hero -->
+      <section class="hero">
+        <span class="badge">Veteran-owned &middot; Wendell, NC</span>
+        <h1>Technical problems solved.<br>Hardware, software, or both.</h1>
+        <p class="lead">
+          30 years across Operations, Electronics, and Software. I find what's broken and build what fixes it &mdash; whether that means firmware, a data pipeline, an AI workflow, or a custom tool.
         </p>
-        <div class="hero-actions">
-          <a href="#contact" class="btn btn-primary">Schedule a Free Systems Review</a>
-          <a href="#contact" class="btn btn-ghost">Contact</a>
+      </section>
+
+      <!-- Four lanes -->
+      <div class="lanes">
+
+        <a href="/embedded-iot.html" class="lane" style="text-decoration:none;color:inherit">
+          <div class="lane-icon">
+            <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h.01M15 9h.01M9 15h.01M15 15h.01M12 4v2M12 18v2M4 12h2M18 12h2"/></svg>
+          </div>
+          <h3>Embedded &amp; IoT</h3>
+          <p>ESP32, Arduino, LoRa, Raspberry Pi. Sensors, actuators, wireless. From prototype to deployed.</p>
+        </a>
+
+        <a href="/industrial-data.html" class="lane" style="text-decoration:none;color:inherit">
+          <div class="lane-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 16l4-4 4 4 4-6"/></svg>
+          </div>
+          <h3>Industrial &amp; Data</h3>
+          <p>MES integration, ETL pipelines, dashboards, and ops automation for manufacturing environments.</p>
+        </a>
+
+        <a href="/ai-automation.html" class="lane" style="text-decoration:none;color:inherit">
+          <div class="lane-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/></svg>
+          </div>
+          <h3>AI &amp; Automation</h3>
+          <p>Practical AI agents, workflow automation, and process integration. No hype &mdash; just what works.</p>
+        </a>
+
+        <a href="/software-tools.html" class="lane" style="text-decoration:none;color:inherit">
+          <div class="lane-icon">
+            <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <h3>Software &amp; Tools</h3>
+          <p>Custom apps, dashboards, and pain-point tools. If a spreadsheet isn't cutting it, I build what does.</p>
+        </a>
+
+      </div>
+
+      <!-- About -->
+      <div class="about">
+        <img src="/assets/frank-mozingo.jpg" alt="Frank Mozingo" class="about-avatar" />
+        <p>
+          <strong>Frank Mozingo</strong> &mdash; Electronics Engineer (Mechatronics), former Director of Operations for a 50-person non-profit, and US Navy &amp; Air Force veteran.
+          12+ years building systems from the floor up at a Fortune 500 semiconductor company. Available for contract work, consulting,
+          and small-to-mid-sized projects. Also on <a href="https://www.upwork.com/freelancers/~01bc6bfc929527a41b" style="color:var(--accent)">Upwork</a>
+          for smaller scoped work.
+        </p>
+      </div>
+
+      <!-- Contact -->
+      <div class="contact-wrap">
+        <h2>Tell me what's broken.</h2>
+        <p class="sub">No pitch. I'll reply with whether I can help and what a first step looks like.</p>
+
+        <div class="card">
+          <!--
+            SETUP (5 min, free):
+            1. Go to https://formspree.io and sign up
+            2. Create a new form, set notification email to frank.mozingo@gmail.com
+            3. Replace xwvnljbz below with your form's ID
+          -->
+          <form id="contact" action="https://formspree.io/f/xwvnljbz" method="POST">
+
+            <div class="field-row">
+              <div>
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required placeholder="Frank Mozingo" />
+              </div>
+              <div>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required placeholder="you@example.com" />
+              </div>
+            </div>
+
+            <label for="area">What area does this fall under?</label>
+            <select id="area" name="area">
+              <option value="">— pick one —</option>
+              <option>Embedded &amp; IoT</option>
+              <option>Industrial &amp; Data</option>
+              <option>AI &amp; Automation</option>
+              <option>Software &amp; Tools</option>
+              <option>Not sure</option>
+            </select>
+
+            <label for="message">What's the problem?</label>
+            <textarea id="message" name="message" required placeholder="Describe what's broken, painful, or slow..."></textarea>
+
+            <input type="hidden" name="_subject" value="Mozingo Systems — new inquiry" />
+            <button type="submit">Send &rarr;</button>
+          </form>
+          <div class="ok" id="ok">Got it &mdash; I'll be in touch shortly.</div>
+          <p class="note">Or email directly: <a href="mailto:frank.mozingo@gmail.com">frank.mozingo@gmail.com</a></p>
         </div>
       </div>
-    </section>
 
-    <!-- ============ WHAT WE DO ============ -->
-    <section class="section" id="what" aria-labelledby="what-heading">
-      <div class="container">
-        <h2 id="what-heading" class="section-title">What We Do</h2>
-        <ul class="grid-list" role="list">
-          <li><span class="idx" aria-hidden="true">01</span>Data Cleanup &amp; Organization</li>
-          <li><span class="idx" aria-hidden="true">02</span>Workflow Automation</li>
-          <li><span class="idx" aria-hidden="true">03</span>Dashboards &amp; Reporting</li>
-          <li><span class="idx" aria-hidden="true">04</span>Systems Integration</li>
-          <li><span class="idx" aria-hidden="true">05</span>Practical AI Implementation</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ============ WHO WE HELP ============ -->
-    <section class="section section-alt" id="who" aria-labelledby="who-heading">
-      <div class="container">
-        <h2 id="who-heading" class="section-title">Who We Help</h2>
-        <div class="who-grid">
-          <div class="who-item">Small &amp; Medium Businesses</div>
-          <div class="who-item">Nonprofits &amp; Churches</div>
-          <div class="who-item">Healthcare Practices</div>
-          <div class="who-item">Manufacturing &amp; Operations Teams</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ APPROACH ============ -->
-    <section class="section" id="approach" aria-labelledby="approach-heading">
-      <div class="container">
-        <h2 id="approach-heading" class="section-title">Approach</h2>
-        <ol class="approach-list" role="list">
-          <li><span class="step" aria-hidden="true">→</span>We identify operational inefficiencies</li>
-          <li><span class="step" aria-hidden="true">→</span>We normalize and connect data</li>
-          <li><span class="step" aria-hidden="true">→</span>We automate repetitive workflows</li>
-          <li><span class="step" aria-hidden="true">→</span>We improve visibility and reporting</li>
-          <li><span class="step" aria-hidden="true">→</span>We prepare systems for practical AI use</li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- ============ FREE SYSTEMS REVIEW ============ -->
-    <section class="section section-dark" id="review" aria-labelledby="review-heading">
-      <div class="container review-inner">
-        <h2 id="review-heading" class="section-title">The Free Systems Review</h2>
-        <div class="review-points">
-          <div class="review-point">
-            <span class="review-label">No cost</span>
-            <p>An initial review with no obligation.</p>
-          </div>
-          <div class="review-point">
-            <span class="review-label">Focused</span>
-            <p>We identify inefficiencies and automation opportunities.</p>
-          </div>
-          <div class="review-point">
-            <span class="review-label">Actionable</span>
-            <p>You get a simple roadmap of improvements.</p>
-          </div>
-        </div>
-        <a href="#contact" class="btn btn-primary">Schedule a Free Systems Review</a>
-      </div>
-    </section>
-
-    <!-- ============ CONTACT / INTAKE ============ -->
-    <section class="section" id="contact" aria-labelledby="contact-heading">
-      <div class="container">
-        <h2 id="contact-heading" class="section-title">Schedule Your Review</h2>
-        <p class="contact-lead">Tell us where the friction is. We'll respond with next steps.</p>
-
-        <form class="intake-form" name="systems-review" method="POST" action="#" novalidate>
-          <div class="field-row">
-            <div class="field">
-              <label for="name">Name</label>
-              <input type="text" id="name" name="name" autocomplete="name" required />
-            </div>
-            <div class="field">
-              <label for="company">Company</label>
-              <input type="text" id="company" name="company" autocomplete="organization" />
-            </div>
-          </div>
-
-          <div class="field-row">
-            <div class="field">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" autocomplete="email" required />
-            </div>
-            <div class="field">
-              <label for="phone">Phone</label>
-              <input type="tel" id="phone" name="phone" autocomplete="tel" />
-            </div>
-          </div>
-
-          <div class="field">
-            <label for="frustrations">What operational processes are most frustrating or time-consuming?</label>
-            <textarea id="frustrations" name="frustrations" rows="3"></textarea>
-          </div>
-
-          <div class="field">
-            <label for="software">What software systems are currently in use?</label>
-            <textarea id="software" name="software" rows="2"></textarea>
-          </div>
-
-          <div class="field">
-            <label for="manual">Where is the most manual or repetitive work happening?</label>
-            <textarea id="manual" name="manual" rows="2"></textarea>
-          </div>
-
-          <fieldset class="field checkbox-group">
-            <legend>What would you most like to improve?</legend>
-            <div class="checkbox-row">
-              <label class="checkbox"><input type="checkbox" name="improve" value="Automation" /> Automation</label>
-              <label class="checkbox"><input type="checkbox" name="improve" value="Reporting" /> Reporting</label>
-              <label class="checkbox"><input type="checkbox" name="improve" value="Data Cleanup" /> Data Cleanup</label>
-              <label class="checkbox"><input type="checkbox" name="improve" value="AI Integration" /> AI Integration</label>
-              <label class="checkbox"><input type="checkbox" name="improve" value="General Efficiency" /> General Efficiency</label>
-            </div>
-          </fieldset>
-
-          <button type="submit" class="btn btn-primary btn-block">Request My Free Systems Review</button>
-        </form>
-      </div>
-    </section>
-
+    </div>
   </main>
 
-  <!-- ============ FOOTER ============ -->
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="footer-brand">
-        <span class="brand-name">MOZINGO<span class="brand-sub">SYSTEMS</span></span>
-        <p class="footer-tag">Operational systems, automation, and practical AI.</p>
+    <footer>
+    <div class="wrap">
+      <div style="display:flex;flex-wrap:wrap;gap:.75rem 2rem;align-items:center;justify-content:space-between;margin-bottom:.75rem">
+        <div style="display:flex;gap:1.25rem;flex-wrap:wrap;font-size:.82rem">
+          <a href="/">Home</a>
+          <a href="/embedded-iot.html">Embedded &amp; IoT</a>
+          <a href="/industrial-data.html">Industrial &amp; Data</a>
+          <a href="/ai-automation.html">AI &amp; Automation</a>
+          <a href="/software-tools.html">Software &amp; Tools</a>
+        </div>
+        <div style="display:flex;gap:1.25rem;flex-wrap:wrap;font-size:.82rem">
+          <a href="https://www.linkedin.com/in/frankmozingo/">LinkedIn</a>
+          <a href="https://www.upwork.com/freelancers/~01bc6bfc929527a41b">Upwork</a>
+          <a href="mailto:info@mozingosystems.com">info@mozingosystems.com</a>
+        </div>
       </div>
-      <div class="footer-meta">
-        <p>North Carolina</p>
-        <p><a href="mailto:hello@mozingosystems.com">hello@mozingosystems.com</a></p>
-        <p><a href="tel:+10000000000">(000) 000-0000</a></p>
-        <p><a href="#" rel="noopener">LinkedIn</a></p>
-      </div>
-    </div>
-    <div class="container footer-bottom">
-      <p>&copy; <span id="year"></span> Mozingo Systems. All rights reserved.</p>
+      <div style="font-size:.82rem">Mozingo Systems &middot; Wendell, NC &middot; Veteran-owned</div>
     </div>
   </footer>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    const form = document.getElementById('contact');
+    form.addEventListener('submit', async function(e) {
+      if (form.action.includes('xwvnljbz')) return;
+      e.preventDefault();
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          form.style.display = 'none';
+          document.getElementById('ok').style.display = 'block';
+        } else {
+          form.submit();
+        }
+      } catch {
+        form.submit();
+      }
+    });
   </script>
+
 </body>
-</html>
+</h
