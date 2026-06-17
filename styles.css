@@ -1,17 +1,17 @@
 :root {
-  --ink: #191a1d;
-  --ink-soft: #3c4248;
-  --muted: #69717a;
-  --line: #d8d2c7;
-  --paper: #f7f5f0;
+  --ink: #171717;
+  --ink-soft: #45484d;
+  --muted: #5f666d;
+  --line: #ded9d2;
+  --paper: #f4f2ee;
   --paper-strong: #ffffff;
-  --paper-alt: #ece7dd;
-  --field: #fbfaf7;
-  --accent: #7a2233;
-  --accent-dark: #5e1a27;
-  --accent-soft: #ead7dc;
-  --steel: #29434d;
-  --gold: #b68b2d;
+  --paper-alt: #efebe5;
+  --field: #ffffff;
+  --accent: #355b63;
+  --accent-dark: #26464b;
+  --accent-soft: #e4ecee;
+  --steel: #2f3f45;
+  --gold: #9a7b36;
   --maxw: 1120px;
   --font-sans: "IBM Plex Sans", "Segoe UI", sans-serif;
   --font-mono: "IBM Plex Mono", monospace;
@@ -119,10 +119,7 @@ a {
 .hero {
   padding: 86px 0 74px;
   border-bottom: 1px solid var(--line);
-  background:
-    linear-gradient(var(--line) 1px, transparent 1px) 0 0 / 100% 72px,
-    linear-gradient(90deg, transparent 0, transparent 72%, rgba(122, 34, 51, 0.08) 72%, rgba(122, 34, 51, 0.08) 100%),
-    var(--paper);
+  background: var(--paper);
 }
 
 .hero-grid {
@@ -335,8 +332,8 @@ h3 {
 }
 
 .service-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 8px 8px 0 rgba(122, 34, 51, 0.14);
+  transform: translateY(-2px);
+  box-shadow: 6px 6px 0 rgba(23, 23, 23, 0.08);
 }
 .service-number {
   margin-bottom: 10px;
