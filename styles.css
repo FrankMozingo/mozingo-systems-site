@@ -2,14 +2,14 @@
   --ink: #171717;
   --ink-soft: #4a4f55;
   --muted: #606770;
-  --line: #dbd7d1;
-  --paper: #f3f1ee;
+  --line: #e3e0da;
+  --paper: #ffffff;
   --paper-strong: #ffffff;
-  --paper-alt: #ede8e1;
+  --paper-alt: #f7f7f5;
   --field: #ffffff;
-  --accent: #2d3f48;
-  --accent-dark: #22343d;
-  --accent-soft: #edf2f4;
+  --accent: #3b5b63;
+  --accent-dark: #304a50;
+  --accent-soft: #edf3f4;
   --steel: #2c3940;
   --gold: #8a7a58;
   --maxw: 1120px;
@@ -56,7 +56,7 @@ a {
   position: sticky;
   top: 0;
   z-index: 20;
-  background: rgba(247, 245, 240, 0.94);
+  background: rgba(255, 255, 255, 0.96);
   border-bottom: 1px solid var(--line);
   backdrop-filter: blur(10px);
 }
