@@ -211,6 +211,7 @@ h3 {
   background: var(--ink);
   color: #fff;
 }
+
 .btn-outline {
   border-color: var(--line);
   background: transparent;
@@ -222,6 +223,7 @@ h3 {
   background: var(--accent-soft);
   color: var(--accent-dark);
 }
+
 .proof-panel {
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -335,6 +337,7 @@ h3 {
   transform: translateY(-2px);
   box-shadow: 6px 6px 0 rgba(23, 23, 23, 0.08);
 }
+
 .service-number {
   margin-bottom: 10px;
   font-size: 0.95rem;
@@ -346,7 +349,7 @@ h3 {
   color: var(--muted);
 }
 
-.feature-list li + li {
+.feature-list li+li {
   margin-top: 6px;
 }
 
@@ -355,6 +358,7 @@ h3 {
   color: var(--muted);
   font-size: 0.98rem;
 }
+
 .proof-strip {
   background: var(--ink);
   color: #f4efe6;
@@ -528,6 +532,7 @@ textarea {
 }
 
 @media (max-width: 900px) {
+
   .hero-grid,
   .split,
   .contact-layout {
