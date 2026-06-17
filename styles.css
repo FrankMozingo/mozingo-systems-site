@@ -214,7 +214,17 @@ h3 {
   background: var(--ink);
   color: #fff;
 }
+.btn-outline {
+  border-color: var(--line);
+  background: transparent;
+  color: var(--ink);
+}
 
+.btn-outline:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+}
 .proof-panel {
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -328,7 +338,26 @@ h3 {
   transform: translateY(-3px);
   box-shadow: 8px 8px 0 rgba(122, 34, 51, 0.14);
 }
+.service-number {
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
 
+.feature-list {
+  margin: 0 0 18px;
+  padding-left: 18px;
+  color: var(--muted);
+}
+
+.feature-list li + li {
+  margin-top: 6px;
+}
+
+.section-note {
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 0.98rem;
+}
 .proof-strip {
   background: var(--ink);
   color: #f4efe6;
