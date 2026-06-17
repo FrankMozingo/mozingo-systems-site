@@ -1,17 +1,17 @@
 :root {
   --ink: #171717;
-  --ink-soft: #45484d;
-  --muted: #5f666d;
-  --line: #ded9d2;
-  --paper: #f4f2ee;
+  --ink-soft: #4a4f55;
+  --muted: #606770;
+  --line: #dbd7d1;
+  --paper: #f3f1ee;
   --paper-strong: #ffffff;
-  --paper-alt: #efebe5;
+  --paper-alt: #ede8e1;
   --field: #ffffff;
-  --accent: #355b63;
-  --accent-dark: #26464b;
-  --accent-soft: #e4ecee;
-  --steel: #2f3f45;
-  --gold: #9a7b36;
+  --accent: #2d3f48;
+  --accent-dark: #22343d;
+  --accent-soft: #edf2f4;
+  --steel: #2c3940;
+  --gold: #8a7a58;
   --maxw: 1120px;
   --font-sans: "IBM Plex Sans", "Segoe UI", sans-serif;
   --font-mono: "IBM Plex Mono", monospace;
