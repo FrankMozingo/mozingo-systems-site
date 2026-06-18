@@ -45,15 +45,16 @@
     }
   ],
   "homepage": {
-    "headline": "AI products. Operations improvement.",
-    "subhead": "Choose a direct AI product for a narrow job. Use operations improvement when the business needs audit, planning, implementation, and maintenance.",
+    "preheadline": "FOR FORWARD-THINKING BUSINESS OWNERS",
+    "headline": "Don't Get Left Behind in the AI Era.",
+    "subhead": "AI and automation should be clear, not confusing. Whether you know exactly what you want to solve or need help uncovering hidden revenue and bottlenecks, Mozingo Systems provides a clear path forward.",
     "primaryCtas": [
       {
-        "label": "Explore AI Products",
+        "label": "Explore Targeted Products",
         "href": "/ai-products.html"
       },
       {
-        "label": "Explore Operations Improvement",
+        "label": "Start an Operations Audit",
         "href": "/operations-improvement.html"
       }
     ]
