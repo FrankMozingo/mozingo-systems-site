@@ -2,6 +2,7 @@ import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { dirname, relative, resolve } from "node:path";
 
 const root = resolve(import.meta.dirname, "..");
+const siteRoot = resolve(root, "public");
 const origin = "https://mozingosystems.com";
 const publicPages = [
   "index.html",
@@ -17,7 +18,7 @@ let linksChecked = 0;
 let documentationLinksChecked = 0;
 
 function read(path) {
-  return readFileSync(resolve(root, path), "utf8");
+  return readFileSync(resolve(siteRoot, path), "utf8");
 }
 
 function fail(path, message) {
@@ -37,7 +38,7 @@ function localTarget(reference) {
 }
 
 for (const page of publicPages) {
-  const fullPath = resolve(root, page);
+  const fullPath = resolve(siteRoot, page);
   if (!existsSync(fullPath)) {
     fail(page, "public page is missing");
     continue;
@@ -68,7 +69,7 @@ for (const page of publicPages) {
     const target = localTarget(match[1]);
     if (!target) continue;
     linksChecked += 1;
-    if (!existsSync(resolve(root, target))) fail(page, `broken local reference ${match[1]}`);
+    if (!existsSync(resolve(siteRoot, target))) fail(page, `broken local reference ${match[1]}`);
   }
 
   for (const match of html.matchAll(/<form\b[^>]*action=["']([^"']+)["']/gi)) {
@@ -100,7 +101,7 @@ for (const [lineNumber, line] of read("_redirects").split(/\r?\n/).entries()) {
     continue;
   }
   const target = localTarget(destination);
-  if (target && !existsSync(resolve(root, target))) {
+  if (target && !existsSync(resolve(siteRoot, target))) {
     fail("_redirects", `destination does not exist on line ${lineNumber + 1}`);
   }
   if (!/^(301|302|307|308)$/.test(status)) {

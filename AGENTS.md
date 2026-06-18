@@ -22,20 +22,20 @@ This repository is the operating workspace for Mozingo Systems' public website a
 ## Architecture
 
 - Keep the production site static HTML and CSS unless the user explicitly approves an architectural change.
-- Keep shared layout and visual changes in `styles.css`.
+- Keep shared layout and visual changes in `public/styles.css`.
 - Use `/assets/Logo.png` for the favicon and header logo.
 - Use `/assets/frank-mozingo.jpg` for the founder photo.
-- Treat the root HTML files, `styles.css`, `assets/`, `_redirects`, `robots.txt`, and `sitemap.xml` as the deployable site.
+- Treat `public/` as the complete deployable site. Do not put operational documentation, credentials, plugin files, or repository internals inside it.
 
 ## Public pages
 
-- `index.html`
-- `ai-services.html`
-- `blueprint.html`
-- `improvement-projects.html`
-- `partnership.html`
-- `about.html`
-- `contact.html`
+- `public/index.html`
+- `public/ai-services.html`
+- `public/blueprint.html`
+- `public/improvement-projects.html`
+- `public/partnership.html`
+- `public/about.html`
+- `public/contact.html`
 
 The older service pages are retained only for redirect compatibility and historical source. Do not add them to navigation or the sitemap.
 
@@ -43,7 +43,7 @@ The older service pages are retained only for redirect compatibility and histori
 
 - Preserve semantic HTML, keyboard access, useful alt text, and mobile behavior.
 - Update navigation consistently across public pages.
-- Update `_redirects`, `sitemap.xml`, and canonical URLs together when routes change.
+- Update `public/_redirects`, `public/sitemap.xml`, and canonical URLs together when routes change.
 - Keep the Formspree contact action unless the user requests a new intake flow.
 - Do not invent claims, testimonials, client names, prices, results, credentials, or locations.
 - Do not commit tokens, credentials, account IDs, customer data, auth links, or private dashboard exports.

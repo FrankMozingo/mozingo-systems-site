@@ -25,21 +25,24 @@ Contact form -> Formspree -> business inbox
 ## Repository layout
 
 ```text
-assets/                         Public images and brand assets
+public/                         Complete deployed static website
+public/assets/                  Public images and brand assets
 docs/                           Business and operating documentation
 scripts/                        Dependency-free local validation and preview
 plugins/mozingo-systems/        Repo-local Codex plugin and skills
 .agents/plugins/                Repo-local plugin marketplace metadata
 .github/                        CI, ownership, and pull request controls
-*.html, styles.css              Production website
-_redirects                      Cloudflare-compatible redirect rules
-robots.txt, sitemap.xml         Search discovery controls
+public/*.html, public/styles.css Production website
+public/_redirects               Cloudflare-compatible redirect rules
+public/robots.txt, public/sitemap.xml Search discovery controls
+wrangler.jsonc                  Workers Static Assets deployment contract
 ```
 
 ## Design constraints
 
 - Keep the production site build-free until a measured requirement justifies a framework.
-- Keep shared visual rules in `styles.css`.
+- Keep shared visual rules in `public/styles.css`.
+- Keep all deployable files inside `public/`; Wrangler must never upload `.git`, docs, plugins, or agent configuration.
 - Keep public routes explicit and version-controlled.
 - Use repository scripts for deterministic checks; external audits supplement them.
 - Store no secrets in the repository. MCP and Cloudflare authentication are user-scoped.

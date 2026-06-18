@@ -26,13 +26,13 @@ The preview runs at `http://127.0.0.1:4173`. There are no package dependencies a
 ## Workspace layout
 
 ```text
-assets/                   Public images and brand assets
+public/                   Complete Cloudflare-deployed static website
 docs/                     Business and operating source of truth
 scripts/                  Local preview and deterministic validation
 plugins/mozingo-systems/  Installable Codex plugin and MCP config
 .agents/                  Agent roles and repo-local plugin marketplace
 .github/                  CI, ownership, and pull request controls
-*.html, styles.css        Production static website
+wrangler.jsonc            Explicit Workers Static Assets deployment
 ```
 
 ## Delivery model

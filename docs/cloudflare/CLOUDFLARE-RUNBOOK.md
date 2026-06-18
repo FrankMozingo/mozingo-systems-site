@@ -31,7 +31,8 @@ The connector did not expose the Cloudflare Pages or Workers project settings. C
 - Production branch: `main`
 - Framework preset: none or static HTML
 - Build command: none
-- Output directory: repository root
+- Deploy command: `npx wrangler deploy` for production and `npx wrangler versions upload` for previews
+- Static assets directory: `public`
 - Preview deployments: enabled for pull requests or non-production branches
 - Canonical domain: `https://mozingosystems.com`
 - `www` behavior: redirect to the canonical apex unless business requirements change
@@ -39,6 +40,8 @@ The connector did not expose the Cloudflare Pages or Workers project settings. C
 The current `www` gap should be closed by attaching the hostname to the same Cloudflare project and issuing a permanent redirect to the canonical apex. Confirm the project type and current custom-domain controls before creating DNS manually.
 
 Do not create a second deployment pipeline in GitHub Actions while Cloudflare Git integration owns deployment. GitHub Actions validates; Cloudflare deploys.
+
+The repository includes `wrangler.jsonc` so both production and preview deploy commands use the same explicit Workers Static Assets configuration. Do not remove it or point assets at the repository root; the prior auto-detected configuration uploaded repository internals.
 
 ## DNS and email guardrails
 
