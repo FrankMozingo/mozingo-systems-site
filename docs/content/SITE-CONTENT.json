@@ -18,17 +18,17 @@
       "Clear enough for business operators"
     ],
     "visualDirection": [
-      "Crimson",
-      "Slate",
-      "Silver",
-      "White",
+      "Dark charcoal base",
+      "Crimson accent",
+      "Slate and silver neutrals",
+      "White text and cards",
       "No prominent founder portrait above the fold",
-      "Clear, product-oriented homepage"
+      "Split-path homepage that routes visitors immediately"
     ]
   },
   "navigation": [
     {
-      "label": "AI Products",
+      "label": "AI products",
       "href": "/ai-products.html"
     },
     {
@@ -38,23 +38,19 @@
     {
       "label": "About",
       "href": "/about.html"
-    },
-    {
-      "label": "Contact",
-      "href": "/contact.html"
     }
   ],
   "homepage": {
-    "preheadline": "FOR FORWARD-THINKING BUSINESS OWNERS",
-    "headline": "Don't Get Left Behind in the AI Era.",
-    "subhead": "AI and automation should be clear, not confusing. Whether you know exactly what you want to solve or need help uncovering hidden revenue and bottlenecks, Mozingo Systems provides a clear path forward.",
+    "preheadline": "AI & automation for small business",
+    "headline": "Don't get left behind in the AI era.",
+    "subhead": "Whether you know exactly what you need or you're still figuring out where the opportunities are, Mozingo Systems has a clear path forward.",
     "primaryCtas": [
       {
-        "label": "Explore Targeted Products",
+        "label": "Explore products",
         "href": "/ai-products.html"
       },
       {
-        "label": "Start an Operations Audit",
+        "label": "Start with an audit",
         "href": "/operations-improvement.html"
       }
     ]
@@ -104,11 +100,11 @@
     ]
   },
   "about": {
-    "headline": "Frank Mozingo builds systems that reduce friction.",
+    "headline": "Frank Mozingo builds practical systems that reduce friction.",
     "summary": "Operations leadership, data systems, automation, software, and practical AI."
   },
   "contact": {
-    "cta": "Start a Conversation",
+    "cta": "Start a conversation",
     "prompt": "Tell me whether you need AI Products or Operations Improvement. I will reply with the most practical first step."
   }
 }

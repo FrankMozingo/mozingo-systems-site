@@ -11,7 +11,7 @@ Turn a plain-language change request into a controlled website update without lo
 1. Edit `docs/content/SITE-CONTENT.json`.
 2. Read the diff as a content brief, not as code.
 3. Translate the changes into page-level edits.
-4. Keep the homepage aligned to the two primary paths.
+4. Keep the homepage aligned to the two primary paths: AI products and Operations Improvement.
 5. Update `public/_redirects` and `public/sitemap.xml` if any route changes.
 6. Run validation and inspect the pages before merge.
 7. If the change affects offer names or positioning, update `docs/brand/business-identity.md` and `docs/content/SITE-SOURCE.md` at the same time.

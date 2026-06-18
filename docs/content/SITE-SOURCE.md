@@ -10,8 +10,9 @@ This file explains the editable site source. The structured source of truth is [
 
 ## Current direction
 
-- `AI Products`
+- `AI products`
 - `Operations Improvement`
-- Crimson, slate, silver, and white visual system
+- Dark charcoal, crimson, slate, silver, and white visual system
 - No prominent founder portrait above the fold
 - Direct, practical, low-hype voice
+- Split-path homepage that routes visitors immediately
