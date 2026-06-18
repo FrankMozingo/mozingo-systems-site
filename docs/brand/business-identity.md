@@ -33,13 +33,14 @@ Avoid inflated AI language, unsupported superlatives, fake urgency, invented pro
 
 - Primary logo: `/assets/Logo.png`
 - Founder image: `/assets/frank-mozingo.jpg`
-- Crimson: `#7c0d11`
-- Slate: `#708090`
+- Charcoal: `#2f2e2c`
+- Crimson accent: `#2f74c9`
+- Slate accent: `#94d9c9`
 - Silver: `#c0c0c0`
-- Ink: `#111317`
+- Ink: `#f3efe8`
 - Paper: `#ffffff`
-- Primary type: Montserrat
-- Body type: Open Sans
+- Primary type: Inter
+- Body type: Inter
 
 ## Canonical calls to action
 
