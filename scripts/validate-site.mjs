@@ -6,10 +6,8 @@ const siteRoot = resolve(root, "public");
 const origin = "https://mozingosystems.com";
 const publicPages = [
   "index.html",
-  "ai-services.html",
-  "blueprint.html",
-  "improvement-projects.html",
-  "partnership.html",
+  "ai-products.html",
+  "operations-improvement.html",
   "about.html",
   "contact.html",
 ];

@@ -7,19 +7,17 @@
 - Location: Wendell, North Carolina
 - Website: https://mozingosystems.com
 - Contact: info@mozingosystems.com
-- Positioning: Operational engineering for organizations with messy processes, disconnected systems, manual work, and data problems.
+- Positioning: Practical AI products and operations improvement for organizations that want clear systems and less manual friction.
 
 ## Offers
 
-- Direct AI services
-- Business Systems Blueprint
-- Operational Improvement Projects
-- Operational Engineering Partnership
+- AI Products
+- Operations Improvement
 
 ## Audience
 
 - Small and mid-sized organizations that need practical operations help
-- Teams with manual workflows, scattered data, or underused tools
+- Teams that want direct AI tools for calls, leads, or scheduling
 - Leaders who want evidence-based improvements instead of generic consulting
 
 ## Voice
@@ -35,12 +33,13 @@ Avoid inflated AI language, unsupported superlatives, fake urgency, invented pro
 
 - Primary logo: `/assets/Logo.png`
 - Founder image: `/assets/frank-mozingo.jpg`
-- Ink: `#171717`
-- Accent: `#3b5b63`
-- Steel: `#2c3940`
-- Gold: `#8a7a58`
-- Primary type: IBM Plex Sans
-- Technical accent type: IBM Plex Mono
+- Crimson: `#7c0d11`
+- Slate: `#708090`
+- Silver: `#c0c0c0`
+- Ink: `#111317`
+- Paper: `#ffffff`
+- Primary type: Montserrat
+- Body type: Open Sans
 
 ## Canonical calls to action
 
@@ -51,10 +50,8 @@ Avoid inflated AI language, unsupported superlatives, fake urgency, invented pro
 ## Public pages
 
 - Home
-- AI Services
-- Blueprint
-- Improvement Projects
-- Partnership
+- AI Products
+- Operations Improvement
 - About
 - Contact
 

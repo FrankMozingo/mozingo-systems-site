@@ -24,16 +24,14 @@ This repository is the operating workspace for Mozingo Systems' public website a
 - Keep the production site static HTML and CSS unless the user explicitly approves an architectural change.
 - Keep shared layout and visual changes in `public/styles.css`.
 - Use `/assets/Logo.png` for the favicon and header logo.
-- Use `/assets/frank-mozingo.jpg` for the founder photo.
+- Use `/assets/frank-mozingo.jpg` only where a founder portrait adds value and does not dominate the layout.
 - Treat `public/` as the complete deployable site. Do not put operational documentation, credentials, plugin files, or repository internals inside it.
 
 ## Public pages
 
 - `public/index.html`
-- `public/ai-services.html`
-- `public/blueprint.html`
-- `public/improvement-projects.html`
-- `public/partnership.html`
+- `public/ai-products.html`
+- `public/operations-improvement.html`
 - `public/about.html`
 - `public/contact.html`
 
@@ -49,6 +47,14 @@ The older service pages are retained only for redirect compatibility and histori
 - Do not commit tokens, credentials, account IDs, customer data, auth links, or private dashboard exports.
 - Run `npm run check` after every website change.
 - Use `npm run dev` for visual and interaction verification.
+
+## Content system
+
+- Treat `docs/content/SITE-CONTENT.json` as the current content source of truth.
+- Use `docs/content/SITE-SOURCE.md` as the human-readable guide to the structured source.
+- When a business message changes, update the JSON first before changing rendered pages.
+- Interpret document edits into site updates with a review step instead of letting the site drift from the brief.
+- Keep the homepage focused on `AI Products` and `Operations Improvement`; the founder image should not dominate the hero.
 
 ## External systems
 
