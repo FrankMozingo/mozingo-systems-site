@@ -19,15 +19,15 @@ This ledger is the cross-thread source of truth. Update it only after checking c
 | L1 | Local website validation passes | VERIFIED | `npm run check` validated 7 public pages and 84 local references on 2026-06-18. |
 | L2 | Local preview serves pages and redirects | VERIFIED | Home and contact returned `200`; legacy route returned `301` on 2026-06-18. |
 | G1 | Operations workspace committed and pushed on a branch | VERIFIED | Branch `codex/operations-workspace` was pushed and pull request #2 was opened on 2026-06-18. |
-| G2 | Pull request passes `Validate site` CI and is merged | IN_PROGRESS | PR #2 now passes both GitHub `validate` and the Cloudflare Workers preview check. Merge and production verification remain. |
+| G2 | Pull request passes `Validate site` CI and is merged | VERIFIED | PR #2 merged on 2026-06-18 after GitHub `validate` and Cloudflare Workers preview passed; production checks then passed on `main`. |
 | G3 | `main` requires pull requests and passing CI | VERIFIED | Protection enabled on 2026-06-18: pull requests, strict `validate` and Workers Builds checks, linear history, resolved conversations, no force pushes, and no deletion. |
-| P1 | Mozingo Systems plugin installed and skills discoverable | READY | Plugin and three skills validate locally. Codex CLI execution was blocked from the Windows app terminal; install through the app or an available CLI. |
+| P1 | Mozingo Systems plugin installed and skills discoverable | VERIFIED | Marketplace and `mozingo-systems` plugin installed and enabled; all three skills are present in the installed plugin cache. Start a new thread to load them. |
 | C1 | Cloudflare project type and Git deployment settings recorded | VERIFIED | GitHub checks and build logs confirm Workers Builds project `mozingo-systems-site`, GitHub integration, production from `main`, `wrangler deploy`, and preview `wrangler versions upload`. |
-| C2 | Production deploys from `main` and previews are enabled | IN_PROGRESS | Cloudflare preview passed with explicit `public/` assets configuration. Merge to `main` and verify the production deployment. |
+| C2 | Production deploys from `main` and previews are enabled | VERIFIED | Preview and post-merge production Workers Builds passed with `wrangler.jsonc` targeting only `public/`; live site and logo returned `200`. |
 | C3 | Apex is canonical and `www` permanently redirects to it | FAILED | Apex returned `200`; `www.mozingosystems.com` did not resolve on 2026-06-18. |
 | C4 | TLS, HTTPS, cache, bot, and security decisions verified | READY | Zone baseline is documented; dashboard settings still require confirmation. |
-| F1 | Production contact form reaches monitored inbox | READY | Form action is configured, but delivery has not been tested end to end. |
-| S1 | Search Console property is verified and sitemap accepted | READY | No Search Console evidence recorded. |
+| F1 | Production contact form reaches monitored inbox | VERIFIED | Formspree accepted an operational test and delivered it to the connected Gmail inbox on 2026-06-18. |
+| S1 | Search Console property is verified and sitemap accepted | BLOCKED | Domain property was added and the connection authorized, but ownership is unverified. Google DNS token retrieval requires an additional Site Verification scope or manual Search Console verification. Pause until the site redesign is settled. |
 | Q1 | Mobile, desktop, accessibility, and performance baseline recorded | READY | Use `docs/templates/QUALITY-BASELINE.md`. |
 | R1 | A production rollback drill is completed and documented | READY | No drill evidence recorded. Use GPT-5.5 for the first drill. |
 | O1 | Weekly and monthly operating cadence has begun | READY | Start after core deployment, form, search, quality, and rollback controls are verified. |
@@ -51,3 +51,8 @@ YYYY-MM-DD - <ID> - <old state> -> <new state> - <evidence or blocker>
 - 2026-06-18 - C2 - READY -> IN_PROGRESS - Explicit `public/` assets deployment added after preview failure.
 - 2026-06-18 - G3 - READY -> VERIFIED - `main` protection enabled and verified through GitHub API.
 - 2026-06-18 - C2 - IN_PROGRESS -> IN_PROGRESS - Cloudflare preview passed after explicit Wrangler configuration.
+- 2026-06-18 - G2 - IN_PROGRESS -> VERIFIED - PR #2 merged and both post-merge checks passed on `main`.
+- 2026-06-18 - P1 - READY -> VERIFIED - Repo marketplace and Mozingo plugin installed and enabled.
+- 2026-06-18 - C2 - IN_PROGRESS -> VERIFIED - Preview, production deployment, live site, and public asset isolation verified.
+- 2026-06-18 - F1 - READY -> VERIFIED - Formspree test delivered to Gmail.
+- 2026-06-18 - S1 - READY -> BLOCKED - Property added but domain ownership verification remains; SEO work intentionally paused for redesign.
