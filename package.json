@@ -1,0 +1,14 @@
+{
+  "name": "mozingo-systems-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Mozingo Systems website and digital operations workspace",
+  "scripts": {
+    "check": "node scripts/validate-site.mjs",
+    "ci": "npm run check",
+    "dev": "node scripts/serve.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "mozingo-systems",
+  "version": "0.1.0",
+  "description": "Operate the Mozingo Systems website, SEO, and Cloudflare environment.",
+  "author": {
+    "name": "Mozingo Systems",
+    "email": "info@mozingosystems.com",
+    "url": "https://mozingosystems.com"
+  },
+  "homepage": "https://mozingosystems.com",
+  "repository": "https://github.com/FrankMozingo/mozingo-systems-site",
+  "keywords": ["mozingo-systems", "website", "seo", "cloudflare", "operations"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Mozingo Systems",
+    "shortDescription": "Operate the Mozingo Systems digital presence.",
+    "longDescription": "Company-specific workflows for maintaining the website, auditing SEO, and operating Cloudflare safely.",
+    "developerName": "Mozingo Systems",
+    "category": "Productivity",
+    "capabilities": ["Read", "Write", "External tools"],
+    "websiteURL": "https://mozingosystems.com",
+    "defaultPrompt": [
+      "Shepherd the next operational-readiness step.",
+      "Prepare a safe website release.",
+      "Review SEO and Cloudflare health."
+    ],
+    "brandColor": "#3B5B63"
+  },
+  "mcpServers": "./.mcp.json"
+}

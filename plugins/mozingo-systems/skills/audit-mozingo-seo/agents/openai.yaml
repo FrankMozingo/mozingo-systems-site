@@ -1,0 +1,4 @@
+interface:
+  display_name: "Mozingo SEO Audit"
+  short_description: "Audit technical and on-page SEO"
+  default_prompt: "Use $audit-mozingo-seo to audit the Mozingo Systems site and prioritize SEO fixes."

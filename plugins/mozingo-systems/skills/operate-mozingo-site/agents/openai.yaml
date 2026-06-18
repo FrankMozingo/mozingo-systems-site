@@ -1,0 +1,4 @@
+interface:
+  display_name: "Mozingo Site Operations"
+  short_description: "Operate and maintain the Mozingo website"
+  default_prompt: "Use $operate-mozingo-site to shepherd the next verified Mozingo Systems operational step."
