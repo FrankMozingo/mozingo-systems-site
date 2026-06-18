@@ -1,0 +1,38 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "editor.formatOnSave": false,
+    "files.eol": "\n",
+    "files.trimTrailingWhitespace": true,
+    "files.exclude": {
+      "**/.git": true
+    },
+    "search.exclude": {
+      "**/.git": true,
+      "**/node_modules": true
+    }
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Validate site",
+        "type": "shell",
+        "command": "npm run check",
+        "group": "test",
+        "problemMatcher": []
+      },
+      {
+        "label": "Preview site",
+        "type": "shell",
+        "command": "npm run dev",
+        "isBackground": true,
+        "problemMatcher": []
+      }
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "mozingo-systems",
+  "interface": {
+    "displayName": "Mozingo Systems"
+  },
+  "plugins": [
+    {
+      "name": "mozingo-systems",
+      "source": {
+        "source": "local",
+        "path": "./plugins/mozingo-systems"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

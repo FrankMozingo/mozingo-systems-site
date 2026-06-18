@@ -1,0 +1,4 @@
+interface:
+  display_name: "Mozingo Cloudflare Operations"
+  short_description: "Operate Cloudflare safely and consistently"
+  default_prompt: "Use $operate-mozingo-cloudflare to audit or change Mozingo Systems Cloudflare configuration."
