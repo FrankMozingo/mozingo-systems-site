@@ -22,16 +22,17 @@ Start a new Codex thread after installation so the skills and Rube MCP configura
 ## Change process
 
 1. Write the intended business outcome and affected pages.
-2. Create a branch using `codex/<short-purpose>` or another documented team convention.
-3. Read `AGENTS.md` and the relevant business, SEO, or Cloudflare runbook.
-4. Make the smallest coherent change.
-5. Run `npm run check`.
-6. Run `npm run dev` and inspect changed behavior at desktop and mobile widths.
-7. Open a pull request and complete the release-risk section.
-8. Require the `Validate site` check to pass.
-9. Merge to `main`; Cloudflare performs continuous delivery from Git.
-10. Verify the production URL, navigation, contact path, canonical URL, and any changed redirect.
-11. If verification fails, roll back immediately rather than stacking unverified fixes.
+2. If the change is editorial, update `docs/content/SITE-SOURCE.md` first so the site has a current source of truth.
+3. Create a branch using `codex/<short-purpose>` or another documented team convention.
+4. Read `AGENTS.md` and the relevant business, SEO, or Cloudflare runbook.
+5. Make the smallest coherent change.
+6. Run `npm run check`.
+7. Run `npm run dev` and inspect changed behavior at desktop and mobile widths.
+8. Open a pull request and complete the release-risk section.
+9. Require the `Validate site` check to pass.
+10. Merge to `main`; Cloudflare performs continuous delivery from Git.
+11. Verify the production URL, navigation, contact path, canonical URL, and any changed redirect.
+12. If verification fails, roll back immediately rather than stacking unverified fixes.
 
 ## Release gates
 
@@ -77,6 +78,10 @@ Every release must satisfy these gates:
 - Review DNS, SSL, users, API tokens, integrations, and least privilege.
 - Exercise one rollback and one contact-form recovery procedure.
 - Archive obsolete pages only after redirects and search impact are accounted for.
+
+## Content updates
+
+When Mozingo Systems changes offers, homepage language, or page structure, update the source-of-truth document in `docs/content/SITE-CONTENT.json` in the same pull request. Use `docs/content/CONTENT-WORKFLOW.md` to interpret the document into page edits. The website should be treated as a rendering of the current content brief, not a collection of one-off edits.
 
 ## Incident severity
 

@@ -1,0 +1,113 @@
+{
+  "brand": {
+    "company": "Mozingo Systems",
+    "owner": "Frank Mozingo",
+    "location": "Wendell, North Carolina",
+    "website": "https://mozingosystems.com",
+    "contact": "info@mozingosystems.com"
+  },
+  "positioning": {
+    "primaryOffers": [
+      "AI Products",
+      "Operations Improvement"
+    ],
+    "voice": [
+      "Direct",
+      "Practical",
+      "Low hype",
+      "Clear enough for business operators"
+    ],
+    "visualDirection": [
+      "Crimson",
+      "Slate",
+      "Silver",
+      "White",
+      "No prominent founder portrait above the fold",
+      "Clear, product-oriented homepage"
+    ]
+  },
+  "navigation": [
+    {
+      "label": "AI Products",
+      "href": "/ai-products.html"
+    },
+    {
+      "label": "Operations Improvement",
+      "href": "/operations-improvement.html"
+    },
+    {
+      "label": "About",
+      "href": "/about.html"
+    },
+    {
+      "label": "Contact",
+      "href": "/contact.html"
+    }
+  ],
+  "homepage": {
+    "headline": "AI products. Operations improvement.",
+    "subhead": "Choose a direct AI product for a narrow job. Use operations improvement when the business needs audit, planning, implementation, and maintenance.",
+    "primaryCtas": [
+      {
+        "label": "Explore AI Products",
+        "href": "/ai-products.html"
+      },
+      {
+        "label": "Explore Operations Improvement",
+        "href": "/operations-improvement.html"
+      }
+    ]
+  },
+  "aiProducts": {
+    "summary": "Predefined AI products for narrow jobs. They answer, capture, or book without turning the whole business into a software project.",
+    "offers": [
+      {
+        "name": "AI Phone Answering",
+        "details": [
+          "Always-on first response",
+          "Message capture",
+          "Escalation routing"
+        ]
+      },
+      {
+        "name": "AI Lead Capture",
+        "details": [
+          "Lead qualification",
+          "Inbox or CRM handoff",
+          "Consistent intake"
+        ]
+      },
+      {
+        "name": "AI Appointment Booking",
+        "details": [
+          "Calendar booking",
+          "Basic rescheduling",
+          "Simple reminders"
+        ]
+      }
+    ]
+  },
+  "operationsImprovement": {
+    "summary": "Start with an operations audit, then decide what to plan, implement, and maintain so the business runs with less friction.",
+    "flow": [
+      "Audit",
+      "Plan / Implement",
+      "Maintain"
+    ],
+    "focusAreas": [
+      "Process flow and handoffs",
+      "Dashboards and reporting",
+      "Data cleanup and consolidation",
+      "Automation and integration",
+      "Operator tools and internal workflows"
+    ]
+  },
+  "about": {
+    "headline": "Frank Mozingo builds systems that reduce friction.",
+    "summary": "Operations leadership, data systems, automation, software, and practical AI."
+  },
+  "contact": {
+    "cta": "Start a Conversation",
+    "prompt": "Tell me whether you need AI Products or Operations Improvement. I will reply with the most practical first step."
+  }
+}

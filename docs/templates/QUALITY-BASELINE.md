@@ -7,8 +7,8 @@ Production deployment or commit:
 ## Pages tested
 
 - Home:
-- AI Services:
-- Blueprint or Improvement Projects:
+- AI Products:
+- Operations Improvement:
 - About:
 - Contact:
 

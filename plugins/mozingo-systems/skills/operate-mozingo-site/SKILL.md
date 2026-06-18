@@ -8,7 +8,7 @@ description: Maintain, operationalize, and release the Mozingo Systems static we
 1. Read `AGENTS.md`, `docs/brand/business-identity.md`, and the relevant page before editing.
 2. For operational-readiness work, read `docs/OPERATOR-GUIDE.md` and `docs/OPERATIONAL-STATUS.md`, advance one item at a time, and follow their GPT-5.5 escalation rules.
 3. Preserve the static, dependency-free architecture unless the user explicitly approves a platform change.
-4. Treat `public/index.html`, `public/ai-services.html`, `public/blueprint.html`, `public/improvement-projects.html`, `public/partnership.html`, `public/about.html`, and `public/contact.html` as the public page set.
+4. Treat `public/index.html`, `public/ai-products.html`, `public/operations-improvement.html`, `public/about.html`, and `public/contact.html` as the public page set.
 5. Update shared navigation consistently across public pages.
 6. Update `public/_redirects`, `public/sitemap.xml`, and canonical URLs together when routes change.
 7. Keep credentials and account identifiers out of the repository.

@@ -38,6 +38,14 @@ public/robots.txt, public/sitemap.xml Search discovery controls
 wrangler.jsonc                  Workers Static Assets deployment contract
 ```
 
+Primary public routes:
+
+- `public/index.html`
+- `public/ai-products.html`
+- `public/operations-improvement.html`
+- `public/about.html`
+- `public/contact.html`
+
 ## Design constraints
 
 - Keep the production site build-free until a measured requirement justifies a framework.
