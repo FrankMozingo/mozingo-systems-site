@@ -2,7 +2,7 @@
 
 Date: 2026-06-19
 Operator: Codex on GPT-5.5
-Production deployment or commit: `ec8341dfd343e54a785e0ffd37fde2cf22c738e9` (Cloudflare version `f4c966b2`)
+Production deployment or commit: `062cf709f84413fd72ead27e75ac406d470217d9`
 
 ## Pages tested
 
@@ -17,7 +17,7 @@ Production deployment or commit: `ec8341dfd343e54a785e0ffd37fde2cf22c738e9` (Clo
 | Environment | Viewport or device | Browser | Result |
 | --- | --- | --- | --- |
 | Desktop | 1280 px wide | Chromium and Lighthouse simulated desktop | Passed |
-| Mobile | 390 px wide and Lighthouse simulated mobile | Chromium | Passed; mobile lab LCP follow-up tracked |
+| Mobile | 390 px wide and Lighthouse simulated mobile | Chromium | Passed; mobile lab LCP follow-up resolved in PR #10 |
 
 ## Functional checks
 
@@ -41,18 +41,18 @@ Tool and version: Lighthouse 13.4.0 against production.
 
 | Page | Mobile performance | Desktop performance | LCP | CLS | Notes |
 | --- | ---: | ---: | ---: | ---: | --- |
-| Home | 84 | 99 | 4.6 s mobile / 0.9 s desktop | 0 | Accessibility, Best Practices, and SEO all 100 |
-| Contact | 83 | 99 | 4.7 s mobile / 0.8 s desktop | 0 | Accessibility, Best Practices, and SEO all 100 |
+| Home | 99-100 | 99 | 1.88-2.01 s mobile / 0.9 s desktop | 0 | Three post-fix mobile runs; TBT 0 |
+| Contact | 99-100 | 99 | 1.76-2.02 s mobile / 0.8 s desktop | 0 | Three post-fix mobile runs; TBT 0 |
 
 ## Defects and actions
 
 | Severity | Finding | Owner | Target date | Tracking link |
 | --- | --- | --- | --- | --- |
-| Medium | Mobile simulated LCP is 4.6-4.7 s despite zero CLS and near-zero TBT; investigate transfer and render timing under throttling. | Site operator | 2026-07-17 | [GitHub issue #8](https://github.com/FrankMozingo/mozingo-systems-site/issues/8) |
+| Resolved | The original logo was oversized and external font requests added critical-path work. PR #10 optimized the logo, restored it on the homepage, and removed the font dependency. | Site operator | 2026-06-19 | [GitHub issue #8](https://github.com/FrankMozingo/mozingo-systems-site/issues/8) |
 
 ## Verdict
 
 - [x] Baseline accepted.
-- [ ] Follow-up work is required before operational sign-off.
+- [x] Performance follow-up completed in PR #10.
 
-The mobile LCP item is an optimization follow-up, not a launch blocker: production is functional, accessible, stable, and fully indexed for the canonical home URL.
+The mobile LCP follow-up is resolved. Production remains functional, accessible, stable, and fully indexed for the canonical home URL.
