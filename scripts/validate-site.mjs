@@ -11,6 +11,13 @@ const publicPages = [
   "about.html",
   "contact.html",
 ];
+const publicRoutes = new Map([
+  ["index.html", "/"],
+  ["ai-products.html", "/ai-products"],
+  ["operations-improvement.html", "/operations-improvement"],
+  ["about.html", "/about"],
+  ["contact.html", "/contact"],
+]);
 const errors = [];
 let linksChecked = 0;
 let documentationLinksChecked = 0;
@@ -24,7 +31,7 @@ function fail(path, message) {
 }
 
 function expectedCanonical(page) {
-  return page === "index.html" ? `${origin}/` : `${origin}/${page}`;
+  return `${origin}${publicRoutes.get(page)}`;
 }
 
 function localTarget(reference) {
@@ -32,7 +39,8 @@ function localTarget(reference) {
   if (!clean || /^(https?:|mailto:|tel:|data:|javascript:)/i.test(clean)) return null;
   const relative = clean.startsWith("/") ? clean.slice(1) : clean;
   if (!relative) return "index.html";
-  return decodeURIComponent(relative);
+  const decoded = decodeURIComponent(relative);
+  return decoded.includes(".") ? decoded : `${decoded}.html`;
 }
 
 for (const page of publicPages) {
@@ -47,6 +55,10 @@ for (const page of publicPages) {
   const description = html.match(/<meta\s+name=["']description["']\s+content=["']([^"']+)["']/i)?.[1].trim();
   const canonical = html.match(/<link\s+rel=["']canonical["']\s+href=["']([^"']+)["']/i)?.[1];
   const h1Count = (html.match(/<h1\b/gi) ?? []).length;
+  const ogTitle = html.match(/<meta\s+property=["']og:title["']\s+content=["']([^"']+)["']/i)?.[1];
+  const ogDescription = html.match(/<meta\s+property=["']og:description["']\s+content=["']([^"']+)["']/i)?.[1];
+  const ogImage = html.match(/<meta\s+property=["']og:image["']\s+content=["']([^"']+)["']/i)?.[1];
+  const twitterCard = html.match(/<meta\s+name=["']twitter:card["']\s+content=["']([^"']+)["']/i)?.[1];
 
   if (!/^<!doctype html>/i.test(html.trimStart())) fail(page, "missing HTML5 doctype");
   if (!/<html\s+lang=["']en["']/i.test(html)) fail(page, "missing lang=\"en\"");
@@ -60,7 +72,16 @@ for (const page of publicPages) {
     fail(page, `canonical must be ${expectedCanonical(page)}`);
   }
   if (h1Count !== 1) fail(page, `expected one h1, found ${h1Count}`);
+  if (!ogTitle || !ogDescription || !ogImage) fail(page, "missing complete Open Graph metadata");
+  if (twitterCard !== "summary") fail(page, "twitter:card must be summary");
+  if (!/<a\b[^>]*class=["'][^"']*skip-link[^"']*["'][^>]*href=["']#main-content["']/i.test(html)) {
+    fail(page, "missing skip link to #main-content");
+  }
+  if (!/<main\b[^>]*id=["']main-content["']/i.test(html)) fail(page, "main must use id=\"main-content\"");
   if (!html.includes("/assets/Logo.png")) fail(page, "missing canonical logo asset");
+  if (/href=["']\/(?:ai-products|operations-improvement|about|contact)\.html(?:[#?"'])/i.test(html)) {
+    fail(page, "internal public links must use canonical extensionless routes");
+  }
   if (/LogoFinal|favicon\.svg/.test(html)) fail(page, "contains a retired brand asset reference");
 
   for (const match of html.matchAll(/(?:href|src)=["']([^"']+)["']/gi)) {
@@ -88,6 +109,17 @@ for (const url of sitemapUrls) {
 const robots = read("robots.txt");
 if (!robots.includes(`Sitemap: ${origin}/sitemap.xml`)) {
   fail("robots.txt", "missing canonical sitemap declaration");
+}
+
+const headers = read("_headers");
+for (const requiredHeader of [
+  "Content-Security-Policy:",
+  "Permissions-Policy:",
+  "Referrer-Policy:",
+  "Strict-Transport-Security:",
+  "X-Content-Type-Options:",
+]) {
+  if (!headers.includes(requiredHeader)) fail("_headers", `missing ${requiredHeader}`);
 }
 
 for (const [lineNumber, line] of read("_redirects").split(/\r?\n/).entries()) {

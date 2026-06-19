@@ -12,7 +12,8 @@ This file explains the editable site source. The structured source of truth is [
 
 - `AI products`
 - `Operations Improvement`
-- Dark charcoal, crimson, slate, silver, and white visual system
+- Charcoal, blue, mint, silver, and warm-white visual system
 - No prominent founder portrait above the fold
 - Direct, practical, low-hype voice
 - Split-path homepage that routes visitors immediately
+- Canonical public routes are extensionless (`/ai-products`, `/operations-improvement`, `/about`, and `/contact`).
