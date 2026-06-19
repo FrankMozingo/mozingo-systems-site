@@ -79,6 +79,19 @@ Every release must satisfy these gates:
 - Exercise one rollback and one contact-form recovery procedure.
 - Archive obsolete pages only after redirects and search impact are accounted for.
 
+## Operating review record
+
+### 2026-06-19 weekly review
+
+- GitHub validation and Cloudflare production deployment were passing after PRs #6 and #7.
+- Home-to-contact navigation and the previously confirmed Formspree delivery path were present.
+- Search Console ownership and sitemap submission were verified; the home URL is indexed and newer service URLs are awaiting normal discovery.
+- Apex, `www`, HTTPS, TLS, security headers, `robots.txt`, sitemap, redirects, and all five public pages passed external checks.
+- The first rollback drill succeeded and the current Worker version was restored.
+- Mobile Lighthouse LCP remains an optimization follow-up in GitHub issue #8.
+
+Next monthly review: 2026-07-19. Complete the monthly checklist above and update `docs/OPERATIONAL-STATUS.md` only from fresh evidence.
+
 ## Content updates
 
 When Mozingo Systems changes offers, homepage language, or page structure, update the source-of-truth document in `docs/content/SITE-CONTENT.json` in the same pull request. Use `docs/content/CONTENT-WORKFLOW.md` to interpret the document into page edits. The website should be treated as a rendering of the current content brief, not a collection of one-off edits.
@@ -99,4 +112,4 @@ When Mozingo Systems changes offers, homepage language, or page structure, updat
 
 ## Current maturity target
 
-Repository controls are implemented locally but are not yet committed, pushed, or proven in GitHub CI. The remaining path includes source-control rollout, branch protection, plugin installation, Cloudflare project settings, canonical `www` behavior, form delivery, Search Console, live quality audits, and a tested rollback. Follow the operator guide in order and update the status ledger after each verified outcome.
+The operational-readiness ledger is fully verified as of 2026-06-19. Continue the weekly, monthly, and quarterly cadence above; treat GitHub issue #8 as a non-blocking performance optimization and re-open the relevant ledger row only if fresh evidence shows a regression.

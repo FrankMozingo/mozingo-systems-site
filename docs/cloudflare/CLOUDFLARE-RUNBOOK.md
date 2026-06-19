@@ -2,18 +2,24 @@
 
 ## Verified baseline
 
-Read-only inspection on 2026-06-18 confirmed:
+Inspection and controlled configuration on 2026-06-19 confirmed:
 
 - `mozingosystems.com` is an active Cloudflare zone on the Free Website plan.
 - Authoritative nameservers are `maleah.ns.cloudflare.com` and `thomas.ns.cloudflare.com`.
 - The apex is proxied through a Cloudflare-managed Worker record.
 - The apex, `robots.txt`, `sitemap.xml`, and legacy redirect were reachable over HTTPS.
-- `www.mozingosystems.com` did not resolve and needs an explicit DNS and redirect decision.
+- `www.mozingosystems.com` is attached as a Workers custom domain and permanently redirects to the canonical apex in one hop, preserving path and query.
 - Cloudflare Email Routing MX, SPF, and DKIM records are present.
 - Bot Fight Mode, AI bot protection, content bot protection, and crawler protection were disabled.
 - Cloudflare-managed `robots.txt` was disabled; the repository's `robots.txt` is authoritative.
+- SSL/TLS mode is Full (strict), minimum TLS is 1.2, and Always Use HTTPS plus Automatic HTTPS Rewrites are enabled.
+- TLS 1.3, HTTP/3, Brotli, Medium security level, and Browser Integrity Check are enabled.
+- Aggressive bot controls remain disabled pending a specific policy and contact/search-crawler test plan.
+- The production Worker is `mozingo-systems-site`; GitHub `main` deploys production and branches receive previews.
+- The scoped connector credential is identified as `mozingo-operations`; its secret is stored outside the repository.
+- Search Console's DNS ownership TXT record is production configuration and must be preserved.
 
-The connector did not expose the Cloudflare Pages or Workers project settings. Confirm the Git repository, production branch, preview behavior, and deployment history in the Cloudflare dashboard before marking them operational.
+Workers project settings and deployment history were confirmed in the Cloudflare dashboard. Repository changes continue through protected GitHub pull requests and Cloudflare Workers Builds.
 
 ## Safe inspection order
 
@@ -37,7 +43,7 @@ The connector did not expose the Cloudflare Pages or Workers project settings. C
 - Canonical domain: `https://mozingosystems.com`
 - `www` behavior: redirect to the canonical apex unless business requirements change
 
-The current `www` gap should be closed by attaching the hostname to the same Cloudflare project and issuing a permanent redirect to the canonical apex. Confirm the project type and current custom-domain controls before creating DNS manually.
+The `www` hostname is attached to the same Worker and a zone-level Single Redirect named `Mozingo canonical redirects` sends it to the apex. Do not replace this with a second deployment or an origin record.
 
 Do not create a second deployment pipeline in GitHub Actions while Cloudflare Git integration owns deployment. GitHub Actions validates; Cloudflare deploys.
 
@@ -51,18 +57,18 @@ The repository includes `wrangler.jsonc` so both production and preview deploy c
 - Avoid exposing origin addresses when Cloudflare proxying is part of the design.
 - Verify email routing after any broad DNS import or zone migration.
 
-## Security baseline to decide
+## Security baseline
 
-The free plan can provide useful controls, but each control needs an explicit decision and a post-change test:
+The verified production decisions are:
 
-- Always Use HTTPS
-- Automatic HTTPS Rewrites
-- SSL/TLS encryption mode
-- Minimum TLS version
-- Bot Fight Mode
-- AI crawler and content-bot policy
-- Security level and managed challenge behavior
-- Cache rules for HTML versus immutable assets
+- Always Use HTTPS: enabled
+- Automatic HTTPS Rewrites: enabled
+- SSL/TLS encryption mode: Full (strict)
+- Minimum TLS version: 1.2
+- Bot Fight Mode, AI crawler protection, and content-bot controls: disabled
+- Security level: Medium; Browser Integrity Check enabled
+- TLS 1.3, HTTP/3, and Brotli: enabled
+- Cache rules: no custom rule is required for the current static Worker; re-evaluate if asset versioning or dynamic HTML is introduced
 
 Do not enable aggressive bot or challenge settings without testing the contact flow and legitimate crawlers.
 
@@ -78,3 +84,5 @@ Do not enable aggressive bot or challenge settings without testing the contact f
 ## Emergency rollback
 
 Use the last known-good Cloudflare deployment for immediate recovery, then revert the responsible Git commit so production and source control converge. DNS rollbacks must restore exact prior values; do not improvise replacement records during an outage.
+
+The first production drill was completed on 2026-06-19: version `f4c966b2` was rolled back to `f3f02dca`, the older HTML/CSP signature was verified at HTTP 200, and `f4c966b2` was promoted back to 100% with its current CSP and asset signature verified at HTTP 200.
