@@ -34,17 +34,17 @@ Avoid inflated AI language, unsupported superlatives, fake urgency, invented pro
 - Primary logo: `/assets/Logo.png`
 - Founder image: `/assets/frank-mozingo.jpg`
 - Charcoal: `#2f2e2c`
-- Crimson accent: `#2f74c9`
-- Slate accent: `#94d9c9`
+- Blue accent: `#2f74c9`
+- Mint accent: `#94d9c9`
 - Silver: `#c0c0c0`
-- Ink: `#f3efe8`
-- Paper: `#ffffff`
+- Warm white: `#f3efe8`
+- White: `#ffffff`
 - Primary type: Inter
 - Body type: Inter
 
 ## Canonical calls to action
 
-- Primary: start a conversation through `/contact.html`
+- Primary: start a conversation through `/contact`
 - Contact email: `info@mozingosystems.com`
 - Use an offer-specific call to action only when the destination and next step are explicit.
 

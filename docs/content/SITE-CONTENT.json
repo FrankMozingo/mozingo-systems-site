@@ -19,9 +19,9 @@
     ],
     "visualDirection": [
       "Dark charcoal base",
-      "Crimson accent",
-      "Slate and silver neutrals",
-      "White text and cards",
+      "Blue primary accent",
+      "Mint secondary accent",
+      "Warm white text and cards",
       "No prominent founder portrait above the fold",
       "Split-path homepage that routes visitors immediately"
     ]
@@ -29,15 +29,15 @@
   "navigation": [
     {
       "label": "AI products",
-      "href": "/ai-products.html"
+      "href": "/ai-products"
     },
     {
       "label": "Operations Improvement",
-      "href": "/operations-improvement.html"
+      "href": "/operations-improvement"
     },
     {
       "label": "About",
-      "href": "/about.html"
+      "href": "/about"
     }
   ],
   "homepage": {
@@ -47,13 +47,32 @@
     "primaryCtas": [
       {
         "label": "Explore products",
-        "href": "/ai-products.html"
+        "href": "/ai-products"
       },
       {
         "label": "Start with an audit",
-        "href": "/operations-improvement.html"
+        "href": "/operations-improvement"
       }
-    ]
+    ],
+    "trustSignals": [
+      "Veteran-owned",
+      "Wendell, NC",
+      "Practical tools, no jargon",
+      "Most products live in days, not months",
+      "Built for small and mid-size business"
+    ],
+    "whyNow": [
+      "Fast response",
+      "Less manual work",
+      "Clear ROI path"
+    ],
+    "productPath": [
+      "Define the job",
+      "Connect the tools",
+      "Go live",
+      "Stay maintained"
+    ],
+    "founderStrip": "30+ years across Navy sonar, Air Force avionics, semiconductor manufacturing, and enterprise data systems."
   },
   "aiProducts": {
     "summary": "Predefined AI products for narrow jobs. They answer, capture, or book without turning the whole business into a software project.",
