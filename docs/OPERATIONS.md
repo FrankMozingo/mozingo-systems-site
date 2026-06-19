@@ -88,7 +88,7 @@ Every release must satisfy these gates:
 - Search Console ownership and sitemap submission were verified; the home URL is indexed and newer service URLs are awaiting normal discovery.
 - Apex, `www`, HTTPS, TLS, security headers, `robots.txt`, sitemap, redirects, and all five public pages passed external checks.
 - The first rollback drill succeeded and the current Worker version was restored.
-- Mobile Lighthouse LCP remains an optimization follow-up in GitHub issue #8.
+- PR #10 restored the homepage logo, reduced the logo asset from about 542 KB to 30 KB, and removed unnecessary external font requests. Three fresh mobile Lighthouse runs per page scored 99-100 with 1.76-2.02 s LCP; issue #8 is closed.
 
 Next monthly review: 2026-07-19. Complete the monthly checklist above and update `docs/OPERATIONAL-STATUS.md` only from fresh evidence.
 
@@ -112,4 +112,4 @@ When Mozingo Systems changes offers, homepage language, or page structure, updat
 
 ## Current maturity target
 
-The operational-readiness ledger is fully verified as of 2026-06-19. Continue the weekly, monthly, and quarterly cadence above; treat GitHub issue #8 as a non-blocking performance optimization and re-open the relevant ledger row only if fresh evidence shows a regression.
+The operational-readiness ledger is fully verified as of 2026-06-19. Continue the weekly, monthly, and quarterly cadence above; re-open the relevant ledger row if fresh evidence shows a performance or availability regression.

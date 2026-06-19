@@ -28,7 +28,7 @@ This ledger is the cross-thread source of truth. Update it only after checking c
 | C4 | TLS, HTTPS, cache, bot, and security decisions verified | VERIFIED | SSL mode Full (strict), minimum TLS 1.2, Always Use HTTPS, Automatic HTTPS Rewrites, TLS 1.3, HTTP/3, Brotli, Medium security, Browser Integrity Check, and production response headers were verified on 2026-06-19. Aggressive bot controls remain intentionally disabled. |
 | F1 | Production contact form reaches monitored inbox | VERIFIED | Formspree accepted an operational test and delivered it to the connected Gmail inbox on 2026-06-18. |
 | S1 | Search Console property is verified and sitemap accepted | VERIFIED | Domain property `sc-domain:mozingosystems.com` is owned; sitemap accepted 5 URLs with 0 errors and 0 warnings. Home is indexed with matching user and Google canonicals; `/ai-products` is discovered and awaiting normal indexing as of 2026-06-19. |
-| Q1 | Mobile, desktop, accessibility, and performance baseline recorded | VERIFIED | Production baseline dated 2026-06-19 records all five pages, responsive inspection, Lighthouse 13.4.0 results, and follow-up issue #8 for mobile lab LCP. |
+| Q1 | Mobile, desktop, accessibility, and performance baseline recorded | VERIFIED | After PR #10, three Lighthouse 13.4.0 mobile runs per page scored 99-100 with 1.88-2.01 s home LCP and 1.76-2.02 s contact LCP; CLS and TBT remained 0. Issue #8 is closed. |
 | R1 | A production rollback drill is completed and documented | VERIFIED | On 2026-06-19 GPT-5.5 rolled Cloudflare Worker `f4c966b2` back to `f3f02dca`, verified the prior production signature at HTTP 200, restored `f4c966b2`, and verified the current CSP and asset signature at HTTP 200. |
 | O1 | Weekly and monthly operating cadence has begun | VERIFIED | First weekly review completed 2026-06-19; next monthly review is scheduled in the operating record for 2026-07-19. |
 
@@ -62,3 +62,4 @@ YYYY-MM-DD - <ID> - <old state> -> <new state> - <evidence or blocker>
 - 2026-06-19 - Q1 - READY -> VERIFIED - Production responsive, accessibility, and performance baseline was recorded; non-blocking mobile LCP work is tracked in issue #8.
 - 2026-06-19 - R1 - READY -> VERIFIED - Worker rollback from `f4c966b2` to `f3f02dca` and restoration to `f4c966b2` were exercised and externally verified.
 - 2026-06-19 - O1 - READY -> VERIFIED - First weekly review completed and the next monthly review date was recorded.
+- 2026-06-19 - Q1 - VERIFIED -> VERIFIED - PR #10 restored the homepage logo and reduced critical-path weight; repeated production mobile Lighthouse runs scored 99-100 with LCP at or below 2.02 s.
