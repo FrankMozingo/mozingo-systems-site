@@ -39,8 +39,8 @@ Avoid inflated AI language, unsupported superlatives, fake urgency, invented pro
 - Silver: `#c0c0c0`
 - Warm white: `#f3efe8`
 - White: `#ffffff`
-- Primary type: Inter
-- Body type: Inter
+- Primary type: system UI, using Segoe UI where available
+- Body type: system UI, using Segoe UI where available
 
 ## Canonical calls to action
 
