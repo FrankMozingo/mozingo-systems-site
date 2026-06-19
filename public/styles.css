@@ -12,8 +12,8 @@
   --slate-dark: #566372;
   --silver: #c0c0c0;
   --maxw: 1180px;
-  --font-display: system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-body: system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-body: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 *,
@@ -870,24 +870,6 @@ body {
 .brand-home {
   gap: 14px;
   font-size: 1.05rem;
-}
-
-.brand-mark {
-  width: 42px;
-  height: 42px;
-  border-radius: 12px;
-  background: #2f74c9;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
-  position: relative;
-  flex: 0 0 auto;
-}
-
-.brand-mark::before {
-  content: "";
-  position: absolute;
-  inset: 12px;
-  border: 2px solid rgba(255, 255, 255, 0.7);
-  border-radius: 3px;
 }
 
 .home-nav {
