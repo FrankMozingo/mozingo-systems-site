@@ -1,6 +1,6 @@
 # Operational Status
 
-Last reviewed: 2026-06-19
+Last reviewed: 2026-06-20
 
 This ledger is the cross-thread source of truth. Update it only after checking current evidence.
 
@@ -26,6 +26,7 @@ This ledger is the cross-thread source of truth. Update it only after checking c
 | C2 | Production deploys from `main` and previews are enabled | VERIFIED | Preview and post-merge production Workers Builds passed with `wrangler.jsonc` targeting only `public/`; live site and logo returned `200`. |
 | C3 | Apex is canonical and `www` permanently redirects to it | VERIFIED | Apex returned `200`; HTTP and HTTPS `www` requests returned a one-hop `301` to the apex while preserving path and query on 2026-06-19. DNS and TLS provisioned successfully. |
 | C4 | TLS, HTTPS, cache, bot, and security decisions verified | VERIFIED | SSL mode Full (strict), minimum TLS 1.2, Always Use HTTPS, Automatic HTTPS Rewrites, TLS 1.3, HTTP/3, Brotli, Medium security, Browser Integrity Check, and production response headers were verified on 2026-06-19. Aggressive bot controls remain intentionally disabled. |
+| C5 | Legacy MOX Consulting domain consolidates into Mozingo Systems | VERIFIED | Four active Cloudflare Single Redirects permanently send mox-consulting.com to mozingosystems.com; contact, about, four legacy service/location/tool paths, query preservation, and the homepage fallback passed seven clean-browser production tests on 2026-06-20. Email Routing DNS records were unchanged. |
 | F1 | Production contact form reaches monitored inbox | VERIFIED | Formspree accepted an operational test and delivered it to the connected Gmail inbox on 2026-06-18. |
 | S1 | Search Console property is verified and sitemap accepted | VERIFIED | Domain property `sc-domain:mozingosystems.com` is owned; sitemap accepted 5 URLs with 0 errors and 0 warnings. Home is indexed with matching user and Google canonicals; `/ai-products` is discovered and awaiting normal indexing as of 2026-06-19. |
 | Q1 | Mobile, desktop, accessibility, and performance baseline recorded | VERIFIED | After PR #10, three Lighthouse 13.4.0 mobile runs per page scored 99-100 with 1.88-2.01 s home LCP and 1.76-2.02 s contact LCP; CLS and TBT remained 0. Issue #8 is closed. |
@@ -63,3 +64,4 @@ YYYY-MM-DD - <ID> - <old state> -> <new state> - <evidence or blocker>
 - 2026-06-19 - R1 - READY -> VERIFIED - Worker rollback from `f4c966b2` to `f3f02dca` and restoration to `f4c966b2` were exercised and externally verified.
 - 2026-06-19 - O1 - READY -> VERIFIED - First weekly review completed and the next monthly review date was recorded.
 - 2026-06-19 - Q1 - VERIFIED -> VERIFIED - PR #10 restored the homepage logo and reduced critical-path weight; repeated production mobile Lighthouse runs scored 99-100 with LCP at or below 2.02 s.
+- 2026-06-20 - C5 - READY -> VERIFIED - Deployed and externally verified the old-domain redirect map; all seven production tests passed and MX, SPF, DKIM, Search Console verification, and Worker DNS records remained unchanged.
