@@ -92,6 +92,14 @@ Every release must satisfy these gates:
 
 Next monthly review: 2026-07-19. Complete the monthly checklist above and update `docs/OPERATIONAL-STATUS.md` only from fresh evidence.
 
+### 2026-06-20 domain consolidation
+
+- mozingosystems.com is the only public brand and canonical website.
+- Four Cloudflare Single Redirects on mox-consulting.com permanently redirect contact, about, legacy service/location/tool URLs, and all unmatched requests to the closest Mozingo Systems destination.
+- Seven clean-browser production checks passed with query strings preserved.
+- The old domain's Email Routing MX, SPF, and DKIM records and its Search Console verification record were re-read after deployment and remained unchanged.
+- Rollback is to disable or delete the four mox-consulting.com redirect rules; no DNS rollback is required because DNS records were not changed.
+
 ## Content updates
 
 When Mozingo Systems changes offers, homepage language, or page structure, update the source-of-truth document in `docs/content/SITE-CONTENT.json` in the same pull request. Use `docs/content/CONTENT-WORKFLOW.md` to interpret the document into page edits. The website should be treated as a rendering of the current content brief, not a collection of one-off edits.

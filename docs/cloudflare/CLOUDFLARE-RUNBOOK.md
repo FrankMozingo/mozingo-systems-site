@@ -18,6 +18,7 @@ Inspection and controlled configuration on 2026-06-19 confirmed:
 - The production Worker is `mozingo-systems-site`; GitHub `main` deploys production and branches receive previews.
 - The scoped connector credential is identified as `mozingo-operations`; its secret is stored outside the repository.
 - Search Console's DNS ownership TXT record is production configuration and must be preserved.
+- mox-consulting.com is retained as a redirect-only legacy domain. Its Email Routing and Search Console DNS records remain production configuration and must be preserved.
 
 Workers project settings and deployment history were confirmed in the Cloudflare dashboard. Repository changes continue through protected GitHub pull requests and Cloudflare Workers Builds.
 
@@ -44,6 +45,17 @@ Workers project settings and deployment history were confirmed in the Cloudflare
 - `www` behavior: redirect to the canonical apex unless business requirements change
 
 The `www` hostname is attached to the same Worker and a zone-level Single Redirect named `Mozingo canonical redirects` sends it to the apex. Do not replace this with a second deployment or an origin record.
+
+### Legacy-domain redirect map
+
+Cloudflare has four active Single Redirects on mox-consulting.com, evaluated in this order:
+
+1. /contact -> https://mozingosystems.com/contact
+2. /about -> https://mozingosystems.com/about
+3. /automation-consulting, /operations-audit, /locations/raleigh, and /tools/savings-calculator -> https://mozingosystems.com/operations-improvement
+4. All remaining requests -> https://mozingosystems.com/
+
+All redirects use status 301 and preserve query strings. Keep the catch-all last because redirect processing stops at the first matching redirect. This map passed seven clean-browser production checks on 2026-06-20.
 
 Do not create a second deployment pipeline in GitHub Actions while Cloudflare Git integration owns deployment. GitHub Actions validates; Cloudflare deploys.
 
@@ -84,5 +96,7 @@ Do not enable aggressive bot or challenge settings without testing the contact f
 ## Emergency rollback
 
 Use the last known-good Cloudflare deployment for immediate recovery, then revert the responsible Git commit so production and source control converge. DNS rollbacks must restore exact prior values; do not improvise replacement records during an outage.
+
+For the mox-consulting.com consolidation, disable or delete the four Single Redirects to restore the legacy Worker response. Do not change MX, SPF, DKIM, Search Console verification, or the Cloudflare-managed Worker DNS record as part of that rollback.
 
 The first production drill was completed on 2026-06-19: version `f4c966b2` was rolled back to `f3f02dca`, the older HTML/CSP signature was verified at HTTP 200, and `f4c966b2` was promoted back to 100% with its current CSP and asset signature verified at HTTP 200.
