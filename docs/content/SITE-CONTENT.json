@@ -134,6 +134,11 @@
   "operationsImprovement": {
     "summary": "Start with an operations audit, then decide what to plan, implement, and maintain so the business runs with less friction.",
     "pricing": "Audits typically run $1,500-$4,000 depending on scope. Implementation and ongoing maintenance are scoped separately once the audit defines the work.",
+    "beforeAfter": {
+      "title": "One audit found three systems that didn't talk to each other.",
+      "before": "A small dental office tracked scheduling in one system, billing in another, and patient follow-up in a spreadsheet nobody remembered to update. Reports took half a day to pull together, and nobody trusted the numbers.",
+      "after": "One audit mapped where the data actually lived, cleaned it up, and connected the systems that needed to talk to each other. Reporting that used to take half a day now takes minutes."
+    },
     "flow": [
       "Audit",
       "Plan / Implement",
