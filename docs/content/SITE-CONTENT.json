@@ -44,6 +44,11 @@
     "preheadline": "AI & automation for small business",
     "headline": "Don't get left behind in the AI era.",
     "subhead": "Whether you know exactly what you need or you're still figuring out where the opportunities are, Mozingo Systems has a clear path forward.",
+    "beforeAfter": {
+      "title": "What this actually looks like",
+      "before": "A call comes in during a job. It goes to voicemail. The customer calls the next business on Google.",
+      "after": "The call gets answered and the lead gets captured while you finish the job you're on."
+    },
     "primaryCtas": [
       {
         "label": "Explore products",
@@ -54,6 +59,19 @@
         "href": "/operations-improvement"
       }
     ],
+    "closingCta": {
+      "headline": "Not sure which path is right?",
+      "copy": "Tell us what's going on. We'll point you to the most practical first step, no sales pitch, no obligation.",
+      "primaryLabel": "Start a conversation",
+      "primaryHref": "/contact",
+      "secondaryLabel": "See the products",
+      "secondaryHref": "/ai-products"
+    },
+    "testimonial": {
+      "title": "What clients say",
+      "quote": "Frank is always pleasant and professional. Very knowledgeable and helpful whenever needed.",
+      "attribution": "Connie Welch, Non-profit Consulting client (LinkedIn recommendation)"
+    },
     "trustSignals": [
       "Veteran-owned",
       "Wendell, NC",
@@ -76,9 +94,13 @@
   },
   "aiProducts": {
     "summary": "Predefined AI products for narrow jobs. They answer, capture, or book without turning the whole business into a software project.",
+    "pricing": "Most projects run $750-$2,500 to set up, plus $99-$249/month for maintenance.",
     "offers": [
       {
-        "name": "AI Phone Answering",
+        "name": "Phone",
+        "headline": "Never miss a call again.",
+        "description": "Calls get answered, qualified, and routed so you do not lose the lead while you are busy doing the actual work.",
+        "howItWorks": "AI or automation handles the first response, captures the details, and hands the call off when a real person needs to step in.",
         "details": [
           "Always-on first response",
           "Message capture",
@@ -86,7 +108,10 @@
         ]
       },
       {
-        "name": "AI Lead Capture",
+        "name": "Lead Capture",
+        "headline": "Keep inbound interest from slipping through the cracks.",
+        "description": "Collect contact details and qualifying information in a consistent way so inbound interest does not get lost between inboxes, forms, and follow-up gaps.",
+        "howItWorks": "AI or automation asks the right intake questions, records the answers, and routes the lead into the next system or inbox.",
         "details": [
           "Lead qualification",
           "Inbox or CRM handoff",
@@ -94,7 +119,10 @@
         ]
       },
       {
-        "name": "AI Appointment Booking",
+        "name": "Appointment Booking",
+        "headline": "Cut the back-and-forth out of scheduling.",
+        "description": "Let the system schedule, confirm, and manage the next step so your team spends less time coordinating calendars manually.",
+        "howItWorks": "AI or automation checks availability, captures the needed details, and books or adjusts the meeting inside your existing process.",
         "details": [
           "Calendar booking",
           "Basic rescheduling",
@@ -120,10 +148,20 @@
   },
   "about": {
     "headline": "Frank Mozingo builds practical systems that reduce friction.",
-    "summary": "Operations leadership, data systems, automation, software, and practical AI."
+    "summary": "Operations leadership, data systems, automation, software, and practical AI.",
+    "testimonials": [
+      {
+        "quote": "Frank is a problem solver. He has a knack for finding a technology solution that delivers for the customer, even if he must develop it himself. Frank is curious and a fast learner, quick to absorb new technologies and do what is needed to get the job done.",
+        "attribution": "Lance Lambert, Transformational Data Executive, former manager at Wolfspeed (LinkedIn recommendation)"
+      },
+      {
+        "quote": "Frank's technical expertise is exceptional - whether it's Snowflake, Power BI, Power Platform, or a range of other tools. Frank has become my go-to person for many applications. His attitude and professionalism are second to none.",
+        "attribution": "Victoria Quinn, Analytics Enablement Lead, Wolfspeed (LinkedIn recommendation)"
+      }
+    ]
   },
   "contact": {
     "cta": "Start a conversation",
-    "prompt": "Tell me whether you need AI Products or Operations Improvement. I will reply with the most practical first step."
+    "prompt": "Tell me whether you need AI Products or Operations Improvement. I will reply with the most practical first step. I respond within one business day."
   }
 }
