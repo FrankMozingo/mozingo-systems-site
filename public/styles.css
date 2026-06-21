@@ -1011,14 +1011,19 @@ body {
   border-radius: 10px;
   background: #dfeafb;
   position: relative;
+  display: grid;
+  place-items: center;
 }
 
 .home-card-icon::before {
-  content: "";
+  content: "↗";
   position: absolute;
-  inset: 11px;
-  border: 1.5px solid #5d87bb;
-  border-radius: 3px;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: #5d87bb;
+  font-size: 1.15rem;
+  font-weight: 700;
 }
 
 .home-card-icon-secondary {
@@ -1026,7 +1031,8 @@ body {
 }
 
 .home-card-icon-secondary::before {
-  border-color: #4a9284;
+  content: "↺";
+  color: #4a9284;
 }
 
 .home-card h2 {
@@ -1123,6 +1129,25 @@ body {
 
 .home-trust-list li span {
   color: var(--crimson);
+}
+
+.home-trust-icon {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 auto;
+  position: relative;
+}
+
+.home-trust-icon::before {
+  content: "";
+  position: absolute;
+  left: 1px;
+  top: 4px;
+  width: 11px;
+  height: 6px;
+  border-left: 2px solid var(--crimson);
+  border-bottom: 2px solid var(--crimson);
+  transform: rotate(-45deg);
 }
 
 .home-proof-section {
