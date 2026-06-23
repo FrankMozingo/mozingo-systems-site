@@ -160,7 +160,7 @@ for (const [lineNumber, line] of read("_redirects").split(/\r?\n/).entries()) {
   if (target && !existsSync(resolve(siteRoot, target))) {
     fail("_redirects", `destination does not exist on line ${lineNumber + 1}`);
   }
-  if (!/^(301|302|307|308|404)$/.test(status)) {
+  if (!/^(200|301|302|303|307|308)$/.test(status)) {
     fail("_redirects", `unsupported status on line ${lineNumber + 1}`);
   }
 }
