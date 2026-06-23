@@ -1,0 +1,113 @@
+---
+import Base from "./Base.astro";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  posts: CollectionEntry<"blog">[];
+}
+
+const { posts } = Astro.props;
+---
+
+<Base
+  canonicalPath="/blog"
+  description="Practical guides on AI, automation, data operations, and running a tighter business."
+  title="Blog"
+>
+  <section class="blog-index">
+    <header class="blog-header">
+      <p class="eyebrow">Blog</p>
+      <h1>Practical guidance for operators.</h1>
+      <p class="page-lead">
+        Practical guides on data, automation, and AI - written for business operators, not software teams.
+      </p>
+    </header>
+
+    {posts.length > 0 ? (
+      <ul class="post-list">
+        {posts.map((post) => (
+          <li class="post-card">
+            <a href={`/blog/${post.id}`}>
+              <h2>{post.data.title}</h2>
+              <p class="post-excerpt">{post.data.description}</p>
+              <span class="post-date">
+                {new Date(post.data.pubDate).toLocaleDateString("en-US", {
+                  day: "numeric",
+                  month: "long",
+                  year: "numeric",
+                })}
+              </span>
+              {post.data.youtubeId && <span class="has-video">Video included</span>}
+            </a>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <div class="blog-empty">
+        <h2>The blog infrastructure is live.</h2>
+        <p>
+          Published posts will appear here once the first article is ready.
+        </p>
+      </div>
+    )}
+  </section>
+</Base>
+
+<style>
+  .blog-index {
+    width: min(100%, 48rem);
+    margin: 0 auto;
+    padding: 3rem 1.25rem 4rem;
+  }
+
+  .blog-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .post-list {
+    display: grid;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .post-card a,
+  .blog-empty {
+    display: block;
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.03);
+    text-decoration: none;
+  }
+
+  .post-card a:hover {
+    border-color: rgba(47, 116, 201, 0.45);
+  }
+
+  .post-card h2,
+  .blog-empty h2 {
+    margin-bottom: 0.625rem;
+    color: var(--ink);
+    font-size: 1.4rem;
+  }
+
+  .post-excerpt,
+  .blog-empty p {
+    margin-bottom: 0.75rem;
+    color: rgba(243, 239, 232, 0.72);
+  }
+
+  .post-date,
+  .has-video {
+    color: rgba(243, 239, 232, 0.58);
+    font-size: 0.88rem;
+  }
+
+  .has-video {
+    display: inline-block;
+    margin-left: 1rem;
+    color: #d4e6ff;
+  }
+</style>
