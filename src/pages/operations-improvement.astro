@@ -1,0 +1,72 @@
+---
+import Base from "../layouts/Base.astro";
+import BeforeAfter from "../components/BeforeAfter.astro";
+import siteContent from "../data/site-content";
+
+const { operationsImprovement } = siteContent;
+---
+
+<Base
+  canonicalPath="/operations-improvement"
+  description="Start with an operations audit, then plan, implement, and maintain the right improvements."
+  title="Operations Improvement"
+>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Operational path</p>
+      <h1>Operations Improvement</h1>
+      <p class="page-lead">{operationsImprovement.summary}</p>
+      <p class="pricing-note">{operationsImprovement.pricing}</p>
+      <div class="page-actions">
+        <a class="btn btn-primary" href="/contact">Start an operations audit</a>
+        <a class="btn btn-secondary" href="/ai-products">See AI Products</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-section home-proof-section">
+    <div class="container">
+      <BeforeAfter
+        after={operationsImprovement.beforeAfter.after}
+        before={operationsImprovement.beforeAfter.before}
+        title={operationsImprovement.beforeAfter.title}
+      />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container step-grid">
+      <h2 class="sr-only">Operations improvement engagement stages</h2>
+      {operationsImprovement.flow.map((step, index) => (
+        <article class={`step-card${index === 2 ? " wide-block" : ""}`} id={step.toLowerCase().replace(/[^\w]+/g, "-")}>
+          <span class="service-number">{String(index + 1).padStart(2, "0")}</span>
+          <h3>{step}</h3>
+          <p>
+            {index === 0 && "Look at how the operation actually works. Identify handoffs, delays, duplication, unclear ownership, and weak reporting."}
+            {index === 1 && "Choose the smallest useful improvement and build it with enough structure to create a measurable result."}
+            {index === 2 && "Keep the system documented, stable, and maintained so the improvement does not fade after launch."}
+          </p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container content-grid">
+      <article class="content-block">
+        <h2>What can improve</h2>
+        <ul class="check-list">
+          {operationsImprovement.focusAreas.map((area) => <li>{area}</li>)}
+        </ul>
+      </article>
+      <article class="content-block">
+        <h2>Why this path exists</h2>
+        <p>Sometimes the problem is not a missing product. It is a system that has grown too complicated, too manual, or too dependent on workarounds.</p>
+      </article>
+      <article class="content-block wide-block">
+        <h2>What to expect</h2>
+        <p>The goal is clarity first, then a practical sequence of changes that makes the operation lighter to run and easier to maintain.</p>
+      </article>
+    </div>
+  </section>
+</Base>

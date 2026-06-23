@@ -6,7 +6,7 @@ This file explains the editable site source. The structured source of truth is [
 
 - Edit `SITE-CONTENT.json` first.
 - Treat the JSON as the business brief that the site should render.
-- Update the public pages, redirects, sitemap, and navigation in the same change.
+- Update the Astro pages in `src/pages/`, redirects, sitemap behavior, and navigation in the same change.
 
 ## Current direction
 
@@ -16,4 +16,4 @@ This file explains the editable site source. The structured source of truth is [
 - No prominent founder portrait above the fold
 - Direct, practical, low-hype voice
 - Split-path homepage that routes visitors immediately
-- Canonical public routes are extensionless (`/ai-products`, `/operations-improvement`, `/about`, and `/contact`).
+- Canonical public routes are extensionless (`/ai-products`, `/operations-improvement`, `/about`, `/contact`, and `/blog`).

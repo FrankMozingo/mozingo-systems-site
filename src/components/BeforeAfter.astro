@@ -1,0 +1,26 @@
+---
+interface Props {
+  after: string;
+  before: string;
+  title: string;
+}
+
+const { after, before, title } = Astro.props;
+---
+
+<div class="before-after">
+  <div class="home-section-head">
+    <p class="home-kicker">What this actually looks like</p>
+    <h2>{title}</h2>
+  </div>
+  <div class="home-proof-grid">
+    <article class="home-proof-card">
+      <span class="home-proof-label">Before</span>
+      <p>{before}</p>
+    </article>
+    <article class="home-proof-card home-proof-card-accent">
+      <span class="home-proof-label">After</span>
+      <p>{after}</p>
+    </article>
+  </div>
+</div>

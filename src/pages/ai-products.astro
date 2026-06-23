@@ -1,0 +1,71 @@
+---
+import Base from "../layouts/Base.astro";
+import siteContent from "../data/site-content";
+
+const { aiProducts } = siteContent;
+---
+
+<Base
+  canonicalPath="/ai-products"
+  description="Direct-use AI products for phone answering, lead capture, and appointment booking."
+  title="AI Products"
+>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Direct offer</p>
+      <h1>AI Products</h1>
+      <p class="page-lead">{aiProducts.summary}</p>
+      <p class="pricing-note">{aiProducts.pricing}</p>
+      <div class="page-actions">
+        <a class="btn btn-primary" href="/contact">Request a product</a>
+        <a class="btn btn-secondary" href="/operations-improvement">See the operations path</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container service-grid">
+      <h2 class="sr-only">Available AI products</h2>
+      {aiProducts.offers.map((offer, index) => (
+        <article class="service-card" id={offer.name.toLowerCase().replace(/\s+/g, "-")}>
+          <span class="service-number">{String(index + 1).padStart(2, "0")}</span>
+          <h3>{offer.name}</h3>
+          <p><strong>{offer.headline}</strong> {offer.description}</p>
+          <p class="service-how"><strong>How it works:</strong> {offer.howItWorks}</p>
+          <ul class="feature-list">
+            {offer.details.map((detail) => <li>{detail}</li>)}
+          </ul>
+          <p class="section-note">
+            <strong>Best for:</strong>
+            {" "}
+            {index === 0 && "missed calls, front-desk overflow, after-hours coverage."}
+            {index === 1 && "web leads, form follow-up, sales intake."}
+            {index === 2 && "consults, demos, service calls, and intake meetings."}
+          </p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container content-grid">
+      <article class="content-block">
+        <h2>How the product path works</h2>
+        <ul class="check-list">
+          <li>Pick the narrow job the product must do.</li>
+          <li>Define the inputs, routing, and failure rules.</li>
+          <li>Connect the product to the tools it needs.</li>
+          <li>Keep it maintained after launch.</li>
+        </ul>
+      </article>
+      <article class="content-block">
+        <h2>When to choose this path</h2>
+        <p>Choose AI Products when you want a direct outcome.</p>
+      </article>
+      <article class="content-block wide-block">
+        <h2>What this is not</h2>
+        <p>This is not a custom software project, a long engagement, or an open-ended consulting retainer.</p>
+      </article>
+    </div>
+  </section>
+</Base>
