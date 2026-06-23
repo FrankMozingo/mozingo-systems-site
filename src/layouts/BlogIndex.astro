@@ -12,40 +12,55 @@ const { posts } = Astro.props;
 <Base
   canonicalPath="/blog"
   description="Practical guides on AI, automation, data operations, and running a tighter business."
+  pageClass="blog-index-page"
   title="Blog"
 >
-  <section class="blog-index">
-    <header class="blog-header">
-      <p class="eyebrow">Blog</p>
-      <h1>Practical guidance for operators.</h1>
-      <p class="page-lead">
+  <section class="blog-index-shell">
+    <header class="blog-index-header">
+      <span class="text-xs font-semibold tracking-widest text-blue-500 uppercase mb-2 block">
+        Blog
+      </span>
+      <h1 class="blog-index-title">
+        Practical guidance for operators.
+      </h1>
+      <p class="blog-index-copy">
         Practical guides on data, automation, and AI - written for business operators, not software teams.
       </p>
     </header>
 
     {posts.length > 0 ? (
-      <ul class="post-list">
+      <div class="blog-index-grid">
         {posts.map((post) => (
-          <li class="post-card">
-            <a href={`/blog/${post.id}`}>
-              <h2>{post.data.title}</h2>
-              <p class="post-excerpt">{post.data.description}</p>
-              <span class="post-date">
-                {new Date(post.data.pubDate).toLocaleDateString("en-US", {
-                  day: "numeric",
-                  month: "long",
-                  year: "numeric",
-                })}
-              </span>
-              {post.data.youtubeId && <span class="has-video">Video included</span>}
+          <article class="blog-index-card">
+            <a href={`/blog/${post.id}`} class="group flex h-full flex-col">
+              <h2 class="blog-index-card-title">
+                {post.data.title}
+              </h2>
+              <p class="blog-index-card-copy">
+                {post.data.description}
+              </p>
+              <div class="blog-index-card-meta">
+                <span class="blog-index-card-date">
+                  {new Date(post.data.pubDate).toLocaleDateString("en-US", {
+                    day: "numeric",
+                    month: "long",
+                    year: "numeric",
+                  })}
+                </span>
+                {post.data.youtubeId && (
+                  <span class="blog-index-card-flag">
+                    Video included
+                  </span>
+                )}
+              </div>
             </a>
-          </li>
+          </article>
         ))}
-      </ul>
+      </div>
     ) : (
-      <div class="blog-empty">
-        <h2>The blog infrastructure is live.</h2>
-        <p>
+      <div class="blog-index-empty">
+        <h2 class="text-2xl font-semibold text-white">The blog infrastructure is live.</h2>
+        <p class="mt-3 text-sm leading-relaxed text-zinc-400">
           Published posts will appear here once the first article is ready.
         </p>
       </div>
@@ -54,60 +69,112 @@ const { posts } = Astro.props;
 </Base>
 
 <style>
-  .blog-index {
-    width: min(100%, 48rem);
+  .blog-index-shell {
+    width: min(100%, 72rem);
     margin: 0 auto;
-    padding: 3rem 1.25rem 4rem;
+    padding: 3.5rem 1.5rem 4.5rem;
   }
 
-  .blog-header {
-    margin-bottom: 2.5rem;
+  .blog-index-header {
+    max-width: 40rem;
   }
 
-  .post-list {
-    display: grid;
-    gap: 1rem;
+  .blog-index-title {
     margin: 0;
-    padding: 0;
-    list-style: none;
+    font-size: clamp(2.2rem, 4vw, 3.4rem);
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+    color: #fff;
   }
 
-  .post-card a,
-  .blog-empty {
-    display: block;
-    padding: 1.5rem;
+  .blog-index-copy {
+    max-width: 36rem;
+    margin: 1rem 0 0;
+    color: rgba(243, 239, 232, 0.72);
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .blog-index-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+    margin-top: 2.5rem;
+  }
+
+  .blog-index-card,
+  .blog-index-empty {
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 18px;
-    background: rgba(255, 255, 255, 0.03);
-    text-decoration: none;
+    background: rgba(34, 33, 32, 0.94);
+    padding: 1.5rem;
+    transition: border-color 160ms ease, transform 160ms ease;
   }
 
-  .post-card a:hover {
-    border-color: rgba(47, 116, 201, 0.45);
+  .blog-index-card:hover {
+    border-color: rgba(148, 217, 201, 0.28);
+    transform: translateY(-2px);
   }
 
-  .post-card h2,
-  .blog-empty h2 {
-    margin-bottom: 0.625rem;
-    color: var(--ink);
-    font-size: 1.4rem;
+  .blog-index-card-title {
+    margin: 0 0 0.75rem;
+    color: #fff;
+    font-size: 1.3rem;
+    line-height: 1.25;
   }
 
-  .post-excerpt,
-  .blog-empty p {
-    margin-bottom: 0.75rem;
-    color: rgba(243, 239, 232, 0.72);
+  .blog-index-card-copy {
+    margin: 0 0 1.25rem;
+    color: rgba(243, 239, 232, 0.7);
+    font-size: 0.96rem;
+    line-height: 1.7;
   }
 
-  .post-date,
-  .has-video {
-    color: rgba(243, 239, 232, 0.58);
-    font-size: 0.88rem;
+  .blog-index-card-meta {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: auto;
   }
 
-  .has-video {
-    display: inline-block;
-    margin-left: 1rem;
+  .blog-index-card-date {
+    color: rgba(243, 239, 232, 0.48);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+
+  .blog-index-card-flag {
     color: #d4e6ff;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .blog-index-empty {
+    margin-top: 2.5rem;
+  }
+
+  @media (max-width: 820px) {
+    .blog-index-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .blog-index-shell {
+      padding: 2.5rem 1rem 3.5rem;
+    }
+
+    .blog-index-title {
+      font-size: clamp(2rem, 9vw, 2.7rem);
+    }
+
+    .blog-index-card,
+    .blog-index-empty {
+      padding: 1.25rem;
+    }
   }
 </style>
