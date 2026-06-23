@@ -1,0 +1,53 @@
+---
+import Base from "../layouts/Base.astro";
+import siteContent from "../data/site-content";
+
+const { about } = siteContent;
+---
+
+<Base
+  canonicalPath="/about"
+  description="Meet Frank Mozingo and the practical operations, data, automation, software, and AI experience behind Mozingo Systems."
+  ogImage="/assets/frank-mozingo.jpg"
+  ogImageAlt="Frank Mozingo"
+  title="About"
+>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">About</p>
+      <h1>{about.headline}</h1>
+      <p class="page-lead">{about.summary}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container content-grid">
+      <article class="content-block">
+        <h2>Approach</h2>
+        <p>Observe how the business actually runs, identify the bottleneck, design the better flow, and keep the result maintainable after launch.</p>
+      </article>
+      <article class="content-block">
+        <h2>Experience</h2>
+        <p>Operations leadership, semiconductor systems, analytics, electronics, and practical delivery work have shaped the way Mozingo Systems approaches problem solving.</p>
+      </article>
+      <article class="about-identity content-block wide-block">
+        <img class="about-portrait" src="/assets/frank-mozingo.jpg" alt="Frank Mozingo" />
+        <div class="about-identity-copy">
+          <h2>What matters</h2>
+          <p>Clarity over hype. Practical implementation over generic advice. Systems that can be maintained after they ship.</p>
+        </div>
+      </article>
+      <article class="content-block wide-block">
+        <h2>What colleagues say about working with Frank</h2>
+        <div class="testimonial-stack">
+          {about.testimonials.map((testimonial) => (
+            <blockquote class="quote-block">
+              <p>"{testimonial.quote}"</p>
+              <cite>{testimonial.attribution}</cite>
+            </blockquote>
+          ))}
+        </div>
+      </article>
+    </div>
+  </section>
+</Base>

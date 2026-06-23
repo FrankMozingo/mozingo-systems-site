@@ -1,0 +1,72 @@
+---
+import Base from "../layouts/Base.astro";
+import siteContent from "../data/site-content";
+
+const { contact } = siteContent;
+---
+
+<Base
+  canonicalPath="/contact"
+  description="Start a conversation about AI products or operations improvement with Mozingo Systems."
+  title="Contact"
+>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Contact</p>
+      <h1>{contact.cta}</h1>
+      <p class="page-lead">{contact.prompt}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container contact-layout">
+      <div>
+        <h2>Good starting points</h2>
+        <ul class="check-list">
+          <li>You want a direct AI product for calls, leads, or booking.</li>
+          <li>You need an operations audit before deciding what to change.</li>
+          <li>You want planning, implementation, and maintenance support.</li>
+          <li>You know something is broken, but you need help framing it.</li>
+        </ul>
+      </div>
+
+      <form class="contact-form" action="https://formspree.io/f/xwvnljbz" method="POST">
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" autocomplete="name" required />
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required />
+        </div>
+        <div class="field">
+          <label for="organization">Organization</label>
+          <input id="organization" name="organization" type="text" autocomplete="organization" />
+        </div>
+        <fieldset class="checkbox-group">
+          <legend>What do you need?</legend>
+          <div class="checkbox-row">
+            <label class="checkbox"><input type="checkbox" name="topic" value="ai-products" /> AI Products</label>
+            <label class="checkbox"><input type="checkbox" name="topic" value="operations-improvement" /> Operations Improvement</label>
+            <label class="checkbox"><input type="checkbox" name="topic" value="audit" /> Operations Audit</label>
+            <label class="checkbox"><input type="checkbox" name="topic" value="implementation" /> Plan / Implement</label>
+            <label class="checkbox"><input type="checkbox" name="topic" value="maintenance" /> Maintain</label>
+            <label class="checkbox"><input type="checkbox" name="topic" value="not-sure" /> Not sure yet</label>
+          </div>
+        </fieldset>
+        <div class="field">
+          <label for="message">What is happening?</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <input type="hidden" name="_subject" value="Mozingo Systems - Start a Conversation" />
+        <button class="btn btn-primary" type="submit">Send</button>
+        <p class="form-note">
+          By submitting, you allow Mozingo Systems to use these details to respond. Form submissions are
+          processed by
+          <a href="https://formspree.io/legal/privacy-policy/" rel="noopener noreferrer"> Formspree</a>.
+        </p>
+        <p class="form-note">Or email directly: <a href="mailto:info@mozingosystems.com">info@mozingosystems.com</a></p>
+      </form>
+    </div>
+  </section>
+</Base>

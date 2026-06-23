@@ -1,0 +1,37 @@
+---
+import { getCollection } from "astro:content";
+import siteContent from "../data/site-content";
+
+interface Props {
+  currentPath: string;
+}
+
+const { currentPath } = Astro.props;
+const publishedPosts = await getCollection("blog", ({ data }) => !data.draft);
+const navLinks = [...siteContent.navigation];
+
+if (publishedPosts.length > 0) {
+  navLinks.splice(2, 0, { label: "Blog", href: "/blog" });
+}
+---
+
+{currentPath === "/" ? (
+  <footer class="home-footer">
+    <div class="container home-footer-inner">
+      <span>© 2026 Mozingo Systems · Wendell, NC</span>
+      <nav aria-label="Footer navigation">
+        {navLinks.map((link) => (
+          <a href={link.href}>{link.label}</a>
+        ))}
+        <a href="/contact">Contact</a>
+      </nav>
+    </div>
+  </footer>
+) : (
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>Mozingo Systems - Wendell, NC - Veteran-owned</span>
+      <span><a href="mailto:info@mozingosystems.com">info@mozingosystems.com</a></span>
+    </div>
+  </footer>
+)}

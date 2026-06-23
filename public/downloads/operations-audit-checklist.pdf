@@ -1,0 +1,79 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 4 0 R >> >> /Contents 5 0 R >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+5 0 obj
+<< /Length 1682 >>
+stream
+BT
+/F1 22 Tf
+1 0 0 1 50 780 Tm (Operations Audit Checklist - Mozingo Systems) Tj
+/F1 14 Tf
+1 0 0 1 50 742 Tm (DATA HEALTH) Tj
+/F1 11 Tf
+1 0 0 1 64 724 Tm ([ ] Single source of truth for customer records) Tj
+/F1 11 Tf
+1 0 0 1 64 708 Tm ([ ] Data entered once instead of copied between systems) Tj
+/F1 11 Tf
+1 0 0 1 64 692 Tm ([ ] Duplicate and stale record audit completed recently) Tj
+/F1 11 Tf
+1 0 0 1 64 676 Tm ([ ] Reports agree with each other) Tj
+/F1 14 Tf
+1 0 0 1 50 648 Tm (SYSTEM INTEGRATION) Tj
+/F1 11 Tf
+1 0 0 1 64 630 Tm ([ ] Every tool touching customer or operational data is listed) Tj
+/F1 11 Tf
+1 0 0 1 64 614 Tm ([ ] Automatic versus manual data sharing is known) Tj
+/F1 11 Tf
+1 0 0 1 64 598 Tm ([ ] Every re-keyed handoff is visible) Tj
+/F1 14 Tf
+1 0 0 1 50 570 Tm (PROCESS DOCUMENTATION) Tj
+/F1 11 Tf
+1 0 0 1 64 552 Tm ([ ] Core workflows are written down) Tj
+/F1 11 Tf
+1 0 0 1 64 536 Tm ([ ] A new employee could follow the process) Tj
+/F1 11 Tf
+1 0 0 1 64 520 Tm ([ ] Weak handoffs between people or systems are known) Tj
+/F1 14 Tf
+1 0 0 1 50 492 Tm (ACCOUNTABILITY) Tj
+/F1 11 Tf
+1 0 0 1 64 474 Tm ([ ] Each system has a clear owner) Tj
+/F1 11 Tf
+1 0 0 1 64 458 Tm ([ ] Responsibility for bad data is defined) Tj
+/F1 11 Tf
+1 0 0 1 64 442 Tm ([ ] Someone knows when automation breaks) Tj
+/F1 14 Tf
+1 0 0 1 50 414 Tm (AI READINESS) Tj
+/F1 11 Tf
+1 0 0 1 64 396 Tm ([ ] Data is clean enough for AI-assisted work) Tj
+/F1 11 Tf
+1 0 0 1 64 380 Tm ([ ] Decision rules are documented) Tj
+/F1 11 Tf
+1 0 0 1 64 364 Tm ([ ] Repeating manual tasks are identified) Tj
+/F1 10 Tf
+1 0 0 1 50 322 Tm (mozingosystems.com | info@mozingosystems.com | Veteran-owned, Wendell NC) Tj
+ET
+endstream
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000241 00000 n 
+0000000311 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+2045
+%%EOF

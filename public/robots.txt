@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mozingosystems.com/sitemap.xml
+Sitemap: https://mozingosystems.com/sitemap-index.xml

@@ -1,0 +1,117 @@
+---
+import Base from "./Base.astro";
+import LeadMagnet from "../components/LeadMagnet.astro";
+import YouTubeEmbed from "../components/YouTubeEmbed.astro";
+
+interface Frontmatter {
+  description: string;
+  pubDate: Date;
+  series?: string;
+  seriesOrder?: number;
+  tags?: string[];
+  title: string;
+  youtubeId?: string;
+}
+
+interface Props {
+  frontmatter: Frontmatter;
+  slug: string;
+}
+
+const { frontmatter, slug } = Astro.props;
+const { description, pubDate, series, seriesOrder, tags = [], title, youtubeId } = frontmatter;
+
+const formattedDate = new Date(pubDate).toLocaleDateString("en-US", {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+});
+---
+
+<Base canonicalPath={`/blog/${slug}`} description={description} title={title}>
+  <article class="blog-post">
+    <header class="post-header">
+      {series && (
+        <p class="post-series">
+          {series}{seriesOrder ? ` - Episode ${seriesOrder}` : ""}
+        </p>
+      )}
+      <h1>{title}</h1>
+      <p class="post-meta">{formattedDate}</p>
+      {tags.length > 0 && (
+        <div class="post-tags">
+          {tags.map((tag) => <span class="tag">{tag}</span>)}
+        </div>
+      )}
+    </header>
+
+    {youtubeId && <YouTubeEmbed title={title} videoId={youtubeId} />}
+
+    <div class="post-content">
+      <slot />
+    </div>
+
+    <LeadMagnet />
+  </article>
+</Base>
+
+<style>
+  .blog-post {
+    width: min(100%, 48rem);
+    margin: 0 auto;
+    padding: 3rem 1.25rem 4rem;
+  }
+
+  .post-header {
+    margin-bottom: 2rem;
+  }
+
+  .post-series {
+    margin-bottom: 0.75rem;
+    color: #d4e6ff;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .post-meta {
+    margin-bottom: 1.25rem;
+    color: rgba(243, 239, 232, 0.58);
+    font-size: 0.9rem;
+  }
+
+  .post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.625rem;
+  }
+
+  .tag {
+    padding: 0.3rem 0.7rem;
+    border: 1px solid rgba(47, 116, 201, 0.35);
+    border-radius: 999px;
+    background: rgba(47, 116, 201, 0.14);
+    color: #d4e6ff;
+    font-size: 0.78rem;
+    font-weight: 700;
+  }
+
+  .post-content {
+    color: rgba(243, 239, 232, 0.84);
+    line-height: 1.8;
+  }
+
+  .post-content :global(h2) {
+    margin-top: 2.5rem;
+  }
+
+  .post-content :global(ul),
+  .post-content :global(ol) {
+    padding-left: 1.25rem;
+  }
+
+  .post-content :global(a) {
+    color: #d4e6ff;
+  }
+ </style>

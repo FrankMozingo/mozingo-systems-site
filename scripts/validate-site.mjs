@@ -2,22 +2,16 @@ import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { dirname, relative, resolve } from "node:path";
 
 const root = resolve(import.meta.dirname, "..");
-const siteRoot = resolve(root, "public");
+const siteRoot = resolve(root, "dist");
 const origin = "https://mozingosystems.com";
 const publicPages = [
-  "index.html",
-  "ai-products.html",
-  "operations-improvement.html",
-  "about.html",
-  "contact.html",
+  { file: "index.html", route: "/" },
+  { file: "ai-products/index.html", route: "/ai-products" },
+  { file: "operations-improvement/index.html", route: "/operations-improvement" },
+  { file: "about/index.html", route: "/about" },
+  { file: "contact/index.html", route: "/contact" },
+  { file: "blog/index.html", route: "/blog" },
 ];
-const publicRoutes = new Map([
-  ["index.html", "/"],
-  ["ai-products.html", "/ai-products"],
-  ["operations-improvement.html", "/operations-improvement"],
-  ["about.html", "/about"],
-  ["contact.html", "/contact"],
-]);
 const errors = [];
 let linksChecked = 0;
 let documentationLinksChecked = 0;
@@ -30,27 +24,29 @@ function fail(path, message) {
   errors.push(`${path}: ${message}`);
 }
 
-function expectedCanonical(page) {
-  return `${origin}${publicRoutes.get(page)}`;
+function expectedCanonical(route) {
+  return route === "/" ? origin : `${origin}${route}`;
 }
 
 function localTarget(reference) {
   const clean = reference.split("#")[0].split("?")[0];
   if (!clean || /^(https?:|mailto:|tel:|data:|javascript:)/i.test(clean)) return null;
-  const relative = clean.startsWith("/") ? clean.slice(1) : clean;
-  if (!relative) return "index.html";
-  const decoded = decodeURIComponent(relative);
-  return decoded.includes(".") ? decoded : `${decoded}.html`;
+  const normalized = decodeURIComponent(clean);
+  if (normalized === "/") return "index.html";
+  if (normalized === "/404") return "404.html";
+  const relativePath = normalized.startsWith("/") ? normalized.slice(1) : normalized;
+  if (!relativePath) return "index.html";
+  return relativePath.includes(".") ? relativePath : `${relativePath.replace(/\/+$/, "")}/index.html`;
 }
 
 for (const page of publicPages) {
-  const fullPath = resolve(siteRoot, page);
+  const fullPath = resolve(siteRoot, page.file);
   if (!existsSync(fullPath)) {
-    fail(page, "public page is missing");
+    fail(page.file, "public page is missing");
     continue;
   }
 
-  const html = read(page);
+  const html = read(page.file);
   const title = html.match(/<title>([\s\S]*?)<\/title>/i)?.[1].trim();
   const description = html.match(/<meta\s+name=["']description["']\s+content=["']([^"']+)["']/i)?.[1].trim();
   const canonical = html.match(/<link\s+rel=["']canonical["']\s+href=["']([^"']+)["']/i)?.[1];
@@ -60,54 +56,84 @@ for (const page of publicPages) {
   const ogImage = html.match(/<meta\s+property=["']og:image["']\s+content=["']([^"']+)["']/i)?.[1];
   const twitterCard = html.match(/<meta\s+name=["']twitter:card["']\s+content=["']([^"']+)["']/i)?.[1];
 
-  if (!/^<!doctype html>/i.test(html.trimStart())) fail(page, "missing HTML5 doctype");
-  if (!/<html\s+lang=["']en["']/i.test(html)) fail(page, "missing lang=\"en\"");
-  if (!/<meta\s+charset=["']?utf-8/i.test(html)) fail(page, "missing UTF-8 charset");
-  if (!/<meta\s+name=["']viewport["']/i.test(html)) fail(page, "missing viewport metadata");
-  if (!title) fail(page, "missing title");
+  if (!/^<!doctype html>/i.test(html.trimStart())) fail(page.file, "missing HTML5 doctype");
+  if (!/<html\s+lang=["']en["']/i.test(html)) fail(page.file, "missing lang=\"en\"");
+  if (!/<meta\s+charset=["']?utf-8/i.test(html)) fail(page.file, "missing UTF-8 charset");
+  if (!/<meta\s+name=["']viewport["']/i.test(html)) fail(page.file, "missing viewport metadata");
+  if (!title) fail(page.file, "missing title");
   if (!description || description.length < 50 || description.length > 170) {
-    fail(page, "description must be 50-170 characters");
+    fail(page.file, "description must be 50-170 characters");
   }
-  if (canonical !== expectedCanonical(page)) {
-    fail(page, `canonical must be ${expectedCanonical(page)}`);
+  if (canonical !== expectedCanonical(page.route)) {
+    fail(page.file, `canonical must be ${expectedCanonical(page.route)}`);
   }
-  if (h1Count !== 1) fail(page, `expected one h1, found ${h1Count}`);
-  if (!ogTitle || !ogDescription || !ogImage) fail(page, "missing complete Open Graph metadata");
-  if (twitterCard !== "summary") fail(page, "twitter:card must be summary");
+  if (h1Count !== 1) fail(page.file, `expected one h1, found ${h1Count}`);
+  if (!ogTitle || !ogDescription || !ogImage) fail(page.file, "missing complete Open Graph metadata");
+  if (twitterCard !== "summary") fail(page.file, "twitter:card must be summary");
   if (!/<a\b[^>]*class=["'][^"']*skip-link[^"']*["'][^>]*href=["']#main-content["']/i.test(html)) {
-    fail(page, "missing skip link to #main-content");
+    fail(page.file, "missing skip link to #main-content");
   }
-  if (!/<main\b[^>]*id=["']main-content["']/i.test(html)) fail(page, "main must use id=\"main-content\"");
-  if (!html.includes("/assets/Logo.png")) fail(page, "missing canonical logo asset");
+  if (!/<main\b[^>]*id=["']main-content["']/i.test(html)) fail(page.file, "main must use id=\"main-content\"");
+  if (!html.includes("/assets/Logo.png")) fail(page.file, "missing canonical logo asset");
   if (/href=["']\/(?:ai-products|operations-improvement|about|contact)\.html(?:[#?"'])/i.test(html)) {
-    fail(page, "internal public links must use canonical extensionless routes");
+    fail(page.file, "internal public links must use canonical extensionless routes");
   }
-  if (/LogoFinal|favicon\.svg/.test(html)) fail(page, "contains a retired brand asset reference");
+  if (/LogoFinal|favicon\.svg/.test(html)) fail(page.file, "contains a retired brand asset reference");
 
   for (const match of html.matchAll(/(?:href|src)=["']([^"']+)["']/gi)) {
     const target = localTarget(match[1]);
     if (!target) continue;
     linksChecked += 1;
-    if (!existsSync(resolve(siteRoot, target))) fail(page, `broken local reference ${match[1]}`);
+    if (!existsSync(resolve(siteRoot, target))) fail(page.file, `broken local reference ${match[1]}`);
   }
 
   for (const match of html.matchAll(/<form\b[^>]*action=["']([^"']+)["']/gi)) {
-    if (!match[1].startsWith("https://")) fail(page, "form action must use HTTPS");
+    if (!match[1].startsWith("https://")) fail(page.file, "form action must use HTTPS");
   }
 }
 
-const sitemap = read("sitemap.xml");
-const sitemapUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
-const expectedUrls = publicPages.map(expectedCanonical);
+const sitemapIndexPath = resolve(siteRoot, "sitemap-index.xml");
+if (!existsSync(sitemapIndexPath)) {
+  fail("sitemap-index.xml", "generated sitemap index is missing");
+}
+
+const sitemapIndex = existsSync(sitemapIndexPath) ? read("sitemap-index.xml") : "";
+const sitemapFiles = [...sitemapIndex.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) =>
+  new URL(match[1]).pathname.replace(/^\//, ""),
+);
+if (!sitemapFiles.length) {
+  fail("sitemap-index.xml", "generated sitemap index has no sitemap entries");
+}
+
+const sitemapUrls = [];
+for (const sitemapFile of sitemapFiles) {
+  if (!existsSync(resolve(siteRoot, sitemapFile))) {
+    fail("sitemap-index.xml", `referenced sitemap is missing: ${sitemapFile}`);
+    continue;
+  }
+  const sitemap = read(sitemapFile);
+  sitemapUrls.push(...[...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]));
+}
+
+const publishedBlogUrls = readdirSync(resolve(siteRoot, "blog"), { withFileTypes: true })
+  .filter((entry) => entry.isDirectory())
+  .map((entry) => `${origin}/blog/${entry.name}`)
+  .filter((url) => url !== `${origin}/blog/index.html`);
+
+const expectedUrls = publicPages.map((page) => expectedCanonical(page.route)).concat(publishedBlogUrls);
 for (const url of expectedUrls) {
-  if (!sitemapUrls.includes(url)) fail("sitemap.xml", `missing ${url}`);
+  if (!sitemapUrls.includes(url)) fail("sitemap-index.xml", `missing ${url}`);
 }
 for (const url of sitemapUrls) {
-  if (!expectedUrls.includes(url)) fail("sitemap.xml", `unexpected public URL ${url}`);
+  if (!expectedUrls.includes(url)) fail("sitemap-index.xml", `unexpected public URL ${url}`);
+}
+
+if (sitemapUrls.some((url) => url.endsWith("/blog/test-post"))) {
+  fail("sitemap-index.xml", "draft test post must not appear in sitemap output");
 }
 
 const robots = read("robots.txt");
-if (!robots.includes(`Sitemap: ${origin}/sitemap.xml`)) {
+if (!robots.includes(`Sitemap: ${origin}/sitemap-index.xml`)) {
   fail("robots.txt", "missing canonical sitemap declaration");
 }
 
@@ -134,9 +160,13 @@ for (const [lineNumber, line] of read("_redirects").split(/\r?\n/).entries()) {
   if (target && !existsSync(resolve(siteRoot, target))) {
     fail("_redirects", `destination does not exist on line ${lineNumber + 1}`);
   }
-  if (!/^(301|302|307|308)$/.test(status)) {
+  if (!/^(200|301|302|303|307|308)$/.test(status)) {
     fail("_redirects", `unsupported status on line ${lineNumber + 1}`);
   }
+}
+
+if (!existsSync(resolve(siteRoot, "downloads/operations-audit-checklist.pdf"))) {
+  fail("downloads", "operations audit checklist PDF is missing");
 }
 
 function markdownFilesIn(directory) {
@@ -179,4 +209,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`Validated ${publicPages.length} public pages, ${linksChecked} local references, ${documentationLinksChecked} documentation links, redirects, robots.txt, and sitemap.xml.`);
+console.log(`Validated ${publicPages.length} public pages, ${linksChecked} local references, ${documentationLinksChecked} documentation links, redirects, robots.txt, generated sitemaps, and downloads.`);
