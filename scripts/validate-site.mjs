@@ -133,8 +133,8 @@ if (sitemapUrls.some((url) => url.endsWith("/blog/test-post"))) {
 }
 
 const robots = read("robots.txt");
-if (!robots.includes(`Sitemap: ${origin}/sitemap-index.xml`)) {
-  fail("robots.txt", "missing canonical sitemap declaration");
+if (!robots.includes(`Sitemap: ${origin}/sitemap.xml`)) {
+  fail("robots.txt", "missing canonical sitemap.xml declaration");
 }
 
 const headers = read("_headers");
